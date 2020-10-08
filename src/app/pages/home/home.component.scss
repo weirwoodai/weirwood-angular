@@ -1,0 +1,16 @@
+.jumbotron {
+  --height: 20rem;
+  text-align: center;
+  height: var(--height);
+  line-height: var(--height);
+  background-image: url("https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  font-size: 5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, darkorchid, dodgerblue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bolder;
+}

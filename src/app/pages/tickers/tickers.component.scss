@@ -1,0 +1,26 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem;
+}
+
+.ticker-selection {
+  display: flex;
+  justify-content: center;
+
+  .tickers-list {
+    flex: 3 1 0;
+    border: 2px dashed dodgerblue;
+  }
+
+  .selected-ticker {
+    flex: 1 1 0;
+    padding: 3rem;
+    font-size: 1.6rem;
+  }
+}
+
+td {
+  text-align: center;
+}

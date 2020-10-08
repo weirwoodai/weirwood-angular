@@ -1,0 +1,27 @@
+<button
+  #showTickers
+  mat-button
+  mat-raised-button
+  color="accent"
+  (click)="getTickers()"
+>Show tickers</button>
+
+<div class="center">
+  <mat-spinner *ngIf="loading"></mat-spinner>
+</div>
+
+<div class="ticker-selection">
+  <p class="selected-ticker"> Selected: {{selectedTicker}} </p>
+  <app-tickers-list
+    class="tickers-list"
+    (selectedTicker)="setSelectedTicker($event)"
+  ></app-tickers-list>
+</div>
+
+<div class="filings">
+  <div class="center">
+    <mat-spinner *ngIf="loadingFilings"></mat-spinner>
+  </div>
+  <p *ngIf="unsuccessfulRequest !== null">{{unsuccessfulRequest}}</p>
+  <app-filing-list></app-filing-list>
+</div>
