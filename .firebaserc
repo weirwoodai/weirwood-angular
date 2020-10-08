@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "weirwood-c027a": {
+      "hosting": {
+        "weirwood-angular": [
+          "weirwoodtrees"
+        ]
+      }
+    }
+  }
+}
