@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FinTenService } from 'src/app/services/fin-ten.service';
+import { FinTenService } from 'src/app/services/fin-ten/fin-ten.service';
 
 @Component({
   selector: 'app-home',

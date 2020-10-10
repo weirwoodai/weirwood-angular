@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FilingListComponent } from 'src/app/components/filing-list/filing-list.component';
 import { TickersListComponent } from 'src/app/components/tickers-list/tickers-list.component';
-import { FinTenService } from 'src/app/services/fin-ten.service';
+import { FinTenService } from 'src/app/services/fin-ten/fin-ten.service';
 
 @Component({
   selector: 'app-tickers',

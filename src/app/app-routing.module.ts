@@ -5,7 +5,11 @@ import { TickersComponent } from './pages/tickers/tickers.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'tickers', component: TickersComponent }
+  { path: 'tickers', component: TickersComponent },
+  {
+    path: 'login',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
+  }
 ];
 
 @NgModule({

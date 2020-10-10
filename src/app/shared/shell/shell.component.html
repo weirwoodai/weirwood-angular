@@ -65,12 +65,13 @@
           routerLink="/tickers"
         >Tickers</a>
 
-        <!-- <a
-          mat-button
-          routerLink="/login"
-          *ngIf="!(afAuth.authState | async)"
-        >🔑 Login</a>
         <a
+          mat-button
+          color="accent"
+          routerLink="/login"
+        >Login</a>
+
+        <!-- <a
           mat-button
           routerLink="/login"
           *ngIf="afAuth.authState | async as user"

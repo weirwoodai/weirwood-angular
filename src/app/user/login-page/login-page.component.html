@@ -1,0 +1,21 @@
+<main>
+  <div *ngIf="!currentSession.isAuthenticated()">
+    <h1>Login</h1>
+
+    <app-email-login></app-email-login>
+  </div>
+
+  <div
+    *ngIf="currentSession.isAuthenticated()"
+    class="logout"
+  >
+    <p>
+      Logged in as <strong>{{ currentSession.getCurrentUser().toString() }}</strong>
+    </p>
+
+    <button
+      mat-stroked-button
+      (click)="currentSession.logout()"
+    > Logout </button>
+  </div>
+</main>
