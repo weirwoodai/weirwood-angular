@@ -2,7 +2,8 @@
   <div *ngIf="!currentSession.isAuthenticated()">
     <h1>Login</h1>
 
-    <app-email-login></app-email-login>
+    <app-email-login (successfulAuthentication)="onSuccessfulAuthentication($event)">
+    </app-email-login>
   </div>
 
   <div
