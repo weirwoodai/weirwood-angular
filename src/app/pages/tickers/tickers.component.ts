@@ -23,15 +23,21 @@ export class TickersComponent {
 
   public getTickers() {
     this.loading = true;
-    this.finten.getTickers().subscribe(
-      (data: any) => {
-        this.loading = false;
-        this.tickerSelection.setTickers(data.tickers);
-      },
-      (error: any) => {
-        this.loading = false;
-      }
-    );
+    try {
+      this.finten.getTickers().subscribe(
+        (data: any) => {
+          this.loading = false;
+          this.tickerSelection.setTickers(data.tickers);
+        },
+        (error: any) => {
+          this.loading = false;
+          this.unsuccessfulRequest = error.error;
+        }
+      );
+    } catch (ex) {
+      this.loading = false;
+      this.unsuccessfulRequest = ex.toString();
+    }
   }
 
   public getFilings(ticker: string) {
