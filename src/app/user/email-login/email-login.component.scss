@@ -1,0 +1,31 @@
+.card {
+  max-width: 60vw;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+
+  .mat-form-field:first-child {
+    margin-top: 1.25em;
+  }
+
+  .buttons {
+    justify-self: center;
+    align-self: center;
+  }
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

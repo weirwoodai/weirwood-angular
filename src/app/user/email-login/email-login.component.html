@@ -1,5 +1,8 @@
-<mat-card>
-  <div *ngIf="isSignup">
+<mat-card class="card center">
+  <div
+    *ngIf="isSignup"
+    class="center"
+  >
     <h3>Create Account</h3>
 
     <button
@@ -10,7 +13,10 @@
     </button>
   </div>
 
-  <div *ngIf="isLogin">
+  <div
+    *ngIf="isLogin"
+    class="center"
+  >
     <h3>Sign In</h3>
     <button
       size="small"
@@ -21,7 +27,10 @@
     </button>
   </div>
 
-  <div *ngIf="isPasswordReset">
+  <div
+    *ngIf="isPasswordReset"
+    class="center"
+  >
     <h3>Reset Password</h3>
     <button
       size="small"
@@ -31,6 +40,7 @@
   </div>
 
   <form
+    class="form"
     [formGroup]="form"
     (ngSubmit)="onSubmit()"
   >
@@ -100,32 +110,35 @@
     </mat-form-field>
 
     <mat-error class="server-error">{{serverMessage}}</mat-error>
+    <div class="buttons">
+      <button
+        *ngIf="isPasswordReset"
+        mat-stroked-button
+        type="submit"
+        disabled
+      >
+        Send Reset Password Email
+      </button>
 
-    <button
-      *ngIf="isPasswordReset"
-      mat-stroked-button
-      type="submit"
-      disabled
-    >
-      Send Reset Password Email
-    </button>
+      <button
+        *ngIf="!isPasswordReset"
+        mat-raised-button
+        color="accent"
+        type="submit"
+        [disabled]="form.invalid || !passwordDoesMatch || loading"
+      >
+        {{type}}
+      </button>
 
-    <button
-      *ngIf="!isPasswordReset"
-      mat-raised-button
-      color="accent"
-      type="submit"
-      [disabled]="form.invalid || !passwordDoesMatch || loading"
-    >
-      {{type}}
-    </button>
+      <button
+        mat-button
+        *ngIf="isLogin && !isPasswordReset"
+        (click)="changeType(FormType.RESET)"
+      >
+        Forgot password?
+      </button>
 
-    <button
-      mat-button
-      *ngIf="isLogin && !isPasswordReset"
-      (click)="changeType(FormType.RESET)"
-    >
-      Forgot password?
-    </button>
+      <mat-spinner *ngIf="loading"></mat-spinner>
+    </div>
   </form>
 </mat-card>
