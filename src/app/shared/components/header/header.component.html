@@ -1,0 +1,61 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="false"
+  >
+    <mat-toolbar color="accent">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item color="accent" routerLink="/" (click)="drawer.close()"
+        >Home</a
+      >
+      <a mat-list-item routerLink="/login" (click)="drawer.close()">Login</a>
+      <a mat-list-item routerLink="/names" (click)="drawer.close()">Names</a>
+      <a mat-list-item routerLink="/tickers" (click)="drawer.close()"
+        >Tickers</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="flex" color="primary">
+      <button
+        type="button"
+        aria-label="Toogle sidenav"
+        mat-icon-button
+        *ngIf="isHandset$ | async"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/" *ngIf="(isHandset$ | async) === false"
+        >Weirwood</span
+      >
+
+      <div *ngIf="(isHandset$ | async) === false">
+        <!-- <a
+      mat-button
+      color="accent"
+      routerLink="/names"
+    >Names</a> -->
+        <a mat-button color="accent" routerLink="/tickers">Tickers</a>
+
+        <a mat-button color="accent" routerLink="/login">Login</a>
+
+        <!-- <a
+      mat-button
+      routerLink="/login"
+      *ngIf="afAuth.authState | async as user"
+    >
+      <img
+        class="avatar"
+        [src]="user.photoURL || 'assets/default-user.svg'"
+      >
+      Profile
+    </a> -->
+      </div>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>
