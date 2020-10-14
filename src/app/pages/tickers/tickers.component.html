@@ -1,17 +1,25 @@
-<button
-  #showTickers
-  mat-button
-  mat-raised-button
-  color="accent"
-  (click)="getTickers()"
->Show tickers</button>
-
-<div class="center">
-  <mat-spinner *ngIf="loading"></mat-spinner>
+<div class="center get-tickers">
+  <button
+    #showTickers
+    mat-button
+    mat-raised-button
+    color="accent"
+    (click)="getTickers()"
+  >
+    Show tickers
+  </button>
+  <mat-spinner
+    class="hidden spinner"
+    diameter="50"
+    [ngClass]="loading ? 'visible' : ''"
+  ></mat-spinner>
 </div>
 
-<div class="ticker-selection">
-  <p class="selected-ticker"> Selected: {{selectedTicker}} </p>
+<div
+  class="ticker-selection"
+  [ngClass]="(isHandset$ | async) ? 'flex-column' : ''"
+>
+  <p class="selected-ticker">Selected: {{ selectedTicker }}</p>
   <app-tickers-list
     class="tickers-list"
     (selectedTicker)="setSelectedTicker($event)"
@@ -22,6 +30,6 @@
   <div class="center">
     <mat-spinner *ngIf="loadingFilings"></mat-spinner>
   </div>
-  <p *ngIf="unsuccessfulRequest !== null">{{unsuccessfulRequest}}</p>
+  <p *ngIf="unsuccessfulRequest !== null">{{ unsuccessfulRequest }}</p>
   <app-filing-list></app-filing-list>
 </div>

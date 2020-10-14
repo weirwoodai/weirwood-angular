@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backend: 'https://finten-vpvvy.ondigitalocean.app'
+  backend: 'https://finten.weirwood.ai'
 };

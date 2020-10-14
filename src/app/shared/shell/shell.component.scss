@@ -1,3 +1,24 @@
+$footer-height: 5vh;
+
+.wrapper {
+  min-height: 100vh;
+  position: relative;
+
+  .section {
+    padding-bottom: $footer-height;
+  }
+
+  .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: $footer-height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .flex {
   display: flex;
   justify-content: space-between;

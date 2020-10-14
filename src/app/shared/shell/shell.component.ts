@@ -16,5 +16,7 @@ export class ShellComponent {
       shareReplay()
     );
 
+  year = new Date().getFullYear();
+
   constructor(private breakpointObserver: BreakpointObserver) {}
 }
