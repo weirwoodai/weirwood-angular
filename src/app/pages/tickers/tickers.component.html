@@ -10,7 +10,7 @@
   </button>
   <mat-spinner
     class="hidden spinner"
-    diameter="50"
+    diameter="20"
     [ngClass]="loading ? 'visible' : ''"
   ></mat-spinner>
 </div>
@@ -27,8 +27,11 @@
 </div>
 
 <div class="filings">
-  <div class="center">
-    <mat-spinner *ngIf="loadingFilings"></mat-spinner>
+  <div
+    class="center"
+    *ngIf="loadingFilings"
+  >
+    <mat-spinner></mat-spinner>
   </div>
   <p *ngIf="unsuccessfulRequest !== null">{{ unsuccessfulRequest }}</p>
   <app-filing-list></app-filing-list>

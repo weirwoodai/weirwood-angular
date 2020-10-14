@@ -1,10 +1,10 @@
-$footer-height: 9vh;
+$footer-height: 5vh;
 
 .wrapper {
   min-height: 100vh;
   position: relative;
 
-  .section {
+  .content {
     padding-bottom: $footer-height;
   }
 
@@ -13,27 +13,7 @@ $footer-height: 9vh;
     width: 100%;
     bottom: 0;
     height: $footer-height;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.flex-column {
-  flex-direction: column;
-  width: 100%;
-}
-
-.logo {
-  cursor: pointer;
-
-  &:focus {
-    outline: none;
+    line-height: $footer-height;
+    text-align: center;
   }
 }

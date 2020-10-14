@@ -1,0 +1,22 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+  width: 100%;
+}
+
+.logo {
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.sidenav {
+  width: 35vw;
+}
