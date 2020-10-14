@@ -1,11 +1,21 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout/';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 @Component({
   selector: 'app-tickers-list',
   templateUrl: './tickers-list.component.html',
   styleUrls: ['./tickers-list.component.scss']
 })
 export class TickersListComponent {
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe([Breakpoints.Handset])
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
+
   public allTickers: string[] = [];
   public filteredTickers: string[] = [];
   public paginatedTickers: string[] = [];
@@ -16,7 +26,7 @@ export class TickersListComponent {
 
   @Output() selectedTicker = new EventEmitter<string>();
 
-  constructor() {}
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   public setTickers(tickers: any[]) {
     this.allTickers = tickers;

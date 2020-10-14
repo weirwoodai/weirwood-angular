@@ -1,46 +1,43 @@
-<div *ngIf="allTickers.length>0">
-
-  <mat-form-field class="example-form-field">
-    <mat-label>Search ticker</mat-label>
-    <input
-      matInput
-      type="text"
-      (keyup)="keyUp()"
-      [(ngModel)]="inputTicker"
-    >
-    <button
-      mat-button
-      *ngIf="inputTicker"
-      matSuffix
-      mat-icon-button
-      aria-label="Clear"
-      (click)="clear()"
-    >
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-
-  <mat-paginator
-    #paginator
-    [pageSize]="pageSize"
-    [pageSizeOptions]="[5, 10, 20, 50]"
-    [showFirstLastButtons]="true"
-    [length]="filteredTickers.length"
-    [pageIndex]="currentPage"
-    (page)="handlePage($event)"
+<div *ngIf="allTickers.length > 0">
+  <div
+    class="table-header"
+    [ngClass]="(isHandset$ | async) ? 'flex-column' : ''"
   >
-  </mat-paginator>
+    <mat-form-field class="search-box">
+      <mat-label>Search ticker</mat-label>
+      <input matInput type="text" (keyup)="keyUp()" [(ngModel)]="inputTicker" />
+      <button
+        mat-button
+        *ngIf="inputTicker"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="clear()"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
 
-  <mat-selection-list
-    #tickers
-    [multiple]="false"
-  >
+    <mat-paginator
+      #paginator
+      class="paginator"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="[5, 10, 20, 50]"
+      [showFirstLastButtons]="true"
+      [length]="filteredTickers.length"
+      [pageIndex]="currentPage"
+      (page)="handlePage($event)"
+    >
+    </mat-paginator>
+  </div>
+
+  <mat-selection-list #tickers [multiple]="false">
     <mat-list-option
       *ngFor="let ticker of paginatedTickers"
       [value]="ticker"
       (click)="emitTickerSelected(ticker)"
     >
-      {{ticker}}
+      {{ ticker }}
     </mat-list-option>
   </mat-selection-list>
 </div>

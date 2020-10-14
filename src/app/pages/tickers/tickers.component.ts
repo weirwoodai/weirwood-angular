@@ -3,12 +3,23 @@ import { FilingListComponent } from 'src/app/components/filing-list/filing-list.
 import { TickersListComponent } from 'src/app/components/tickers-list/tickers-list.component';
 import { FinTenService } from 'src/app/services/fin-ten/fin-ten.service';
 
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout/';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+
 @Component({
   selector: 'app-tickers',
   templateUrl: './tickers.component.html',
   styleUrls: ['./tickers.component.scss']
 })
 export class TickersComponent {
+  public isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe([Breakpoints.Handset])
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
+
   public loading = false;
   public selectedTicker = '';
 
@@ -19,7 +30,10 @@ export class TickersComponent {
   tickerSelection: TickersListComponent;
   @ViewChild(FilingListComponent) filingsList: FilingListComponent;
 
-  constructor(private finten: FinTenService) {}
+  constructor(
+    private finten: FinTenService,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 
   public getTickers() {
     this.loading = true;
