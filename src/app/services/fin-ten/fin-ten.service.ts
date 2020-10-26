@@ -23,9 +23,9 @@ export class FinTenService {
     return this.getWithAuthentication(`${this.backend}/api/company/tickers`);
   }
 
-  getTicker(ticker: string) {
+  getFilings(ticker: string) {
     return this.getWithAuthentication(
-      `${this.backend}/api/company/ticker?ticker=${ticker}`
+      `${this.backend}/api/company/filings?ticker=${ticker}`
     );
   }
 

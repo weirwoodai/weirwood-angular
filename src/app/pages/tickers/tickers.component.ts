@@ -60,11 +60,11 @@ export class TickersComponent {
     this.filingsList.filings = [];
 
     console.log(`Getting financial info of ${ticker}`);
-    this.finten.getTicker(ticker).subscribe(
+    this.finten.getFilings(ticker).subscribe(
       (data: any) => {
         console.log('Received: ', data);
         this.loadingFilings = false;
-        this.filingsList.filings = data.data;
+        this.filingsList.filings = data.filings;
       },
       (error: any) => {
         this.loadingFilings = false;
