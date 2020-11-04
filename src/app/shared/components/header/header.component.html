@@ -29,8 +29,11 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span class="logo" routerLink="/" *ngIf="(isHandset$ | async) === false"
-        >Weirwood</span
+      <span
+        class="logo h-100"
+        routerLink="/"
+        *ngIf="(isHandset$ | async) === false"
+        ><app-weirwood-logo>Weirwood</app-weirwood-logo></span
       >
 
       <div *ngIf="(isHandset$ | async) === false">

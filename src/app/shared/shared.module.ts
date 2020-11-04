@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { WeirwoodLogoComponent } from './components/weirwood-logo/weirwood-logo.component';
 
 const components = [ShellComponent];
 
@@ -46,7 +47,7 @@ const modules = [
 ];
 
 @NgModule({
-  declarations: [...components, HeaderComponent, FooterComponent],
+  declarations: [...components, HeaderComponent, FooterComponent, WeirwoodLogoComponent],
   imports: [...modules],
   exports: [...components, ...modules]
 })
