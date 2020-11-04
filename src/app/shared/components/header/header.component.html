@@ -7,19 +7,26 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="false"
   >
-    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-toolbar color="primary" class="flex flex-center">
+      <app-weirwood-logo class="h-100"></app-weirwood-logo>
+    </mat-toolbar>
     <mat-nav-list>
       <a mat-list-item color="primary" routerLink="/" (click)="drawer.close()"
         >Home</a
       >
-      <a mat-list-item routerLink="/login" (click)="drawer.close()">Login</a>
-      <a mat-list-item routerLink="/tickers" (click)="drawer.close()"
-        >Tickers</a
+
+      <a mat-list-item routerLink="/products" (click)="drawer.close()"
+        >Products</a
+      >
+      <a mat-list-item routerLink="/about" (click)="drawer.close()">About</a>
+
+      <a mat-list-item routerLink="/contact" (click)="drawer.close()"
+        >Contact</a
       >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="flex" color="primary">
+    <mat-toolbar class="flex flex-between" color="primary">
       <button
         type="button"
         aria-label="Toogle sidenav"
@@ -37,9 +44,11 @@
       >
 
       <div *ngIf="(isHandset$ | async) === false">
-        <a mat-button color="accent" routerLink="/tickers">Tickers</a>
-
-        <a mat-button color="accent" routerLink="/login">Login</a>
+        <mat-nav-list class="list-horizontal">
+          <a mat-list-item routerLink="/products">Products</a>
+          <a mat-list-item routerLink="/about">About</a>
+          <a mat-list-item routerLink="/contact">Contact</a>
+        </mat-nav-list>
       </div>
     </mat-toolbar>
   </mat-sidenav-content>
