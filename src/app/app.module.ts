@@ -10,6 +10,9 @@ import { TickersComponent } from './pages/tickers/tickers.component';
 import { FilingListComponent } from './components/filing-list/filing-list.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { TickersListComponent } from './components/tickers-list/tickers-list.component';
+import { ProductsComponent } from './pages/products/products.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { TickersListComponent } from './components/tickers-list/tickers-list.com
     TickersComponent,
     FilingListComponent,
     FilterPipe,
-    TickersListComponent
+    TickersListComponent,
+    ProductsComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
