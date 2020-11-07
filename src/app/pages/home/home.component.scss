@@ -1,33 +1,33 @@
-.video-bg-wrapper {
-  --height: 20rem;
-  height: var(--height);
+@import '../../../styles.scss';
+
+$height: 100vh;
+
+.video-bg {
+  height: $height;
   position: relative;
-  line-height: var(--height);
+  line-height: $height;
   background: url('https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
     0% 0% / cover no-repeat;
 
-  .video-bg-content {
+  &-content {
     text-align: center;
     font-size: 3rem;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     z-index: 1;
+    @include use-all-surface();
   }
-  .video-bg {
+  &-movie {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     z-index: 0;
+    @include use-all-surface();
 
     video {
       object-fit: cover;
-      width: 100%;
-      height: 100%;
+      @include use-all-surface();
     }
   }
 }

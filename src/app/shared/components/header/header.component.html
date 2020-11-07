@@ -30,7 +30,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="flex flex-between" color="primary">
+    <mat-toolbar class="flex flex-between flex-center-y" color="primary">
       <button
         type="button"
         aria-label="Toogle sidenav"
@@ -40,12 +40,14 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
+
       <span
         class="logo h-100"
         routerLink="/"
         *ngIf="(isHandset$ | async) === false"
-        ><app-weirwood-logo>Weirwood</app-weirwood-logo></span
       >
+        <app-weirwood-logo>Weirwood</app-weirwood-logo>
+      </span>
 
       <div *ngIf="(isHandset$ | async) === false">
         <mat-nav-list class="list-horizontal">

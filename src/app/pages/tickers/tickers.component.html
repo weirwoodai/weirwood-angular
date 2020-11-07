@@ -1,4 +1,4 @@
-<div class="center get-tickers">
+<div class="flex flex-center get-tickers">
   <button
     #showTickers
     mat-button
@@ -16,7 +16,7 @@
 </div>
 
 <div
-  class="ticker-selection"
+  class="ticker-selection flex flex-center-x"
   [ngClass]="(isHandset$ | async) ? 'flex-column' : ''"
 >
   <p class="selected-ticker">Selected: {{ selectedTicker }}</p>
@@ -27,10 +27,7 @@
 </div>
 
 <div class="filings">
-  <div
-    class="center"
-    *ngIf="loadingFilings"
-  >
+  <div class="center" *ngIf="loadingFilings">
     <mat-spinner></mat-spinner>
   </div>
   <p *ngIf="unsuccessfulRequest !== null">{{ unsuccessfulRequest }}</p>

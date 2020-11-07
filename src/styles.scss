@@ -50,8 +50,9 @@ $weirwood-palette: (
 );
 
 $weirwood-primary: mat-palette($weirwood-palette, 600, 500, 900);
-$primary: $weirwood-primary;
 $weirwood-accent: mat-palette($weirwood-palette, A400, A300, A600);
+
+$primary: $weirwood-primary;
 $accent: $weirwood-accent;
 
 // The warn palette is optional (defaults to red).
@@ -74,10 +75,5 @@ body {
   font-family: 'Montserrat', Roboto, 'Helvetica Neue', sans-serif;
 }
 
-.background-color-primary {
-  background-color: mat-color($primary);
-}
-
-.background-color-accent {
-  background-color: mat-color($accent);
-}
+@import 'partials/utilities';
+@import 'partials/mixins';
