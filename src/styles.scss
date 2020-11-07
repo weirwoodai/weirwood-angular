@@ -1,17 +1,69 @@
 /* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+// Plus imports for other components in your app.
 @include mat-core();
 
-$primary: mat-palette($mat-deep-purple, 600, 500, 900);
-$accent: mat-palette($mat-amber, A400, A300, A600);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-.background-color-primary {
-  background-color: mat-color($primary);
-}
+$custom-typography: mat-typography-config(
+  $font-family: 'Montserrat'
+);
 
-.background-color-accent {
-  background-color: mat-color($accent);
-}
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core($custom-typography);
+
+$weirwood-palette: (
+  50: #f6e9e9,
+  100: #e8c8c8,
+  200: #d8a3a3,
+  300: #c87e7e,
+  400: #bd6262,
+  500: #b14646,
+  600: #aa3f3f,
+  700: #a13737,
+  800: #982f2f,
+  900: #882020,
+  A100: #ffc4c4,
+  A200: #ff9191,
+  A400: #ff5e5e,
+  A700: #ff4545,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #ffffff
+  )
+);
+
+$weirwood-primary: mat-palette($weirwood-palette, 600, 500, 900);
+$primary: $weirwood-primary;
+$weirwood-accent: mat-palette($weirwood-palette, A400, A300, A600);
+$accent: $weirwood-accent;
+
+// The warn palette is optional (defaults to red).
+$weirwood-warn: mat-palette($mat-red);
+
+$weirwood-theme: mat-dark-theme(
+  $weirwood-primary,
+  $weirwood-accent,
+  $weirwood-warn
+);
+
+@include angular-material-theme($weirwood-theme);
 
 html,
 body {
@@ -19,5 +71,13 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  font-family: 'Montserrat', Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.background-color-primary {
+  background-color: mat-color($primary);
+}
+
+.background-color-accent {
+  background-color: mat-color($accent);
 }

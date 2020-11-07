@@ -8,14 +8,14 @@ import { TickersComponent } from './pages/tickers/tickers.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  // { path: 'products', component: ProductsComponent },
-  // { path: 'about', component: AboutComponent },
-  // { path: 'contact', component: ContactComponent }
-  { path: 'tickers', component: TickersComponent },
-  {
-    path: 'login',
-    loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
-  }
+  { path: 'products', component: ProductsComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'contact', component: ContactComponent }
+  // { path: 'tickers', component: TickersComponent },
+  // {
+  //   path: 'login',
+  //   loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
+  // }
 ];
 
 @NgModule({
