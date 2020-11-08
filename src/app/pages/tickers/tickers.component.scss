@@ -14,12 +14,11 @@
   }
 }
 
-.data {
+.financial-data {
   width: 100vw;
   .ticker-selection {
     width: 25%;
     padding: 0.8rem;
-    // border: 1px solid gold;
 
     .selected-ticker {
       padding: 1.62rem;
@@ -29,8 +28,7 @@
   }
 
   .filings {
-    width: 75%;
-    // border: 1px solid red;
+    width: 72%;
   }
 }
 
@@ -42,7 +40,6 @@
     .ticker-selection {
       width: 100%;
       padding: 0.8rem;
-      // border: 1px solid gold;
 
       .selected-ticker {
         padding: 1.62rem;
@@ -53,7 +50,6 @@
 
     .filings {
       width: 100%;
-      // border: 1px solid red;
     }
   }
 }

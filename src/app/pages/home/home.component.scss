@@ -22,11 +22,27 @@
     padding: 7rem 0;
     cursor: pointer;
     margin: 0 0.3rem;
-    border-radius: 12px;
+    border-radius: 0.8rem;
+    transition: 0.2s all ease-in-out;
+
+    h1,
+    p {
+      transition: 0.2s all ease-in-out;
+    }
   }
 
   .product:hover {
     background-color: rgba(187, 187, 187, 0.25);
+    h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .product:focus {
+    outline: none;
   }
 }
 

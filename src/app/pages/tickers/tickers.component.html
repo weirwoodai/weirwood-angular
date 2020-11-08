@@ -9,20 +9,20 @@
   >
     Show tickers
   </button>
-  <mat-spinner
-    class="hidden spinner"
-    diameter="20"
-    [ngClass]="loading ? 'visible' : ''"
-  ></mat-spinner>
 </div>
 
-<div class="data flex">
+<div class="financial-data flex">
   <div class="ticker-selection">
     <p class="selected-ticker">Selected: {{ selectedTicker }}</p>
     <app-tickers-list
       class="tickers-list"
       (selectedTicker)="setSelectedTicker($event)"
     ></app-tickers-list>
+    <mat-spinner
+      class="hidden spinner"
+      diameter="80"
+      [ngClass]="loading ? 'visible' : ''"
+    ></mat-spinner>
   </div>
 
   <div class="filings">
