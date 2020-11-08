@@ -39,5 +39,9 @@
   .financial-data {
     flex-flow: wrap;
     max-height: none;
+
+    .filings {
+      max-height: 100vh;
+    }
   }
 }
