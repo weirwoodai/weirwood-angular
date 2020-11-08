@@ -1,7 +1,29 @@
 .filing-list {
-  overflow-x: scroll;
+  margin: 2vh;
+  overflow-x: auto;
+  overflow-y: auto;
+  // border: 1px solid dodgerblue;
+  height: 96vh;
 }
 
 .mat-header-cell {
   padding: 0.3rem;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell {
+  padding: 0 1.5rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+th.mat-header-cell,
+td.mat-cell,
+td.mat-footer-cell:not(:last-child) {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: rgba(255, 255, 255, 0.12);
 }

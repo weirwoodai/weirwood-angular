@@ -6,8 +6,15 @@
     width: 100%;
   }
 
-  &-between {
+  &-wrap {
+    flex-wrap: wrap;
+  }
+
+  &-space-between {
     justify-content: space-between;
+  }
+  &-space-around {
+    justify-content: space-around;
   }
 
   &-center,

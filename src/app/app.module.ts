@@ -13,6 +13,7 @@ import { TickersListComponent } from './components/tickers-list/tickers-list.com
 import { ProductsComponent } from './pages/products/products.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { VideoBackgroundComponent } from './components/video-background/video-background.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     TickersListComponent,
     ProductsComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    VideoBackgroundComponent
   ],
   imports: [
     BrowserModule,

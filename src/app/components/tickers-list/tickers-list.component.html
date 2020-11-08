@@ -1,8 +1,5 @@
 <div *ngIf="allTickers.length > 0">
-  <div
-    class="table-header"
-    [ngClass]="(isHandset$ | async) ? 'flex-column' : ''"
-  >
+  <div class="table-header flex flex-column">
     <mat-form-field class="search-box">
       <mat-label>Search ticker</mat-label>
       <input matInput type="text" (keyup)="keyUp()" [(ngModel)]="inputTicker" />

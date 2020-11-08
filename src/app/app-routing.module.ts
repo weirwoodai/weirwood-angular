@@ -10,12 +10,12 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent }
-  // { path: 'tickers', component: TickersComponent },
-  // {
-  //   path: 'login',
-  //   loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
-  // }
+  { path: 'contact', component: ContactComponent },
+  {
+    path: 'login',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
+  },
+  { path: 'tickers', component: TickersComponent }
 ];
 
 @NgModule({

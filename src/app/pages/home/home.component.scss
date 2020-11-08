@@ -1,33 +1,58 @@
-@import '../../../styles.scss';
-
-$height: 100vh;
-
-.video-bg {
-  height: $height;
-  position: relative;
-  line-height: $height;
-  background: url('https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260')
-    0% 0% / cover no-repeat;
-
-  &-content {
-    text-align: center;
-    font-size: 3rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    @include use-all-surface();
+.weirwood {
+  text-align: center;
+  height: 30%;
+  padding-top: 4rem;
+  padding-bottom: 8rem;
+  h1 {
+    font-size: 5em;
+    line-height: 1;
   }
-  &-movie {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    @include use-all-surface();
 
-    video {
-      object-fit: cover;
-      @include use-all-surface();
+  p {
+    font-size: 1.5em;
+  }
+}
+
+.products {
+  justify-content: center;
+  align-items: center;
+  .product {
+    flex: 1 0 0;
+    text-align: center;
+    padding: 7rem 0;
+    cursor: pointer;
+    margin: 0 0.3rem;
+    border-radius: 12px;
+  }
+
+  .product:hover {
+    background-color: rgba(187, 187, 187, 0.25);
+  }
+}
+
+@media (max-width: 992px) {
+  .weirwood {
+    margin: 0 0 4rem 0;
+    flex: 100%;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+    }
+  }
+
+  .products {
+    flex: 100%;
+
+    .product {
+      flex: 100%;
+      padding: 2rem;
+      h1 {
+        font-size: 1.5rem;
+      }
     }
   }
 }

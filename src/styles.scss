@@ -50,7 +50,7 @@ $weirwood-palette: (
 );
 
 $weirwood-primary: mat-palette($weirwood-palette, 600, 500, 900);
-$weirwood-accent: mat-palette($weirwood-palette, A400, A300, A600);
+$weirwood-accent: mat-palette($weirwood-palette, 600, 500, 900);
 
 $primary: $weirwood-primary;
 $accent: $weirwood-accent;

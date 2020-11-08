@@ -3,6 +3,11 @@
 .get-tickers {
   text-align: center;
   position: relative;
+  margin: 2rem;
+
+  .show-tickers {
+    color: white;
+  }
 
   .spinner {
     position: absolute;
@@ -11,20 +16,46 @@
   }
 }
 
-.ticker-selection {
-  .tickers-list {
-    flex: 3 1 0;
-    border: 2px dashed dodgerblue;
+.data {
+  width: 100vw;
+  .ticker-selection {
+    width: 25%;
+    padding: 0.8rem;
+    // border: 1px solid gold;
+
+    .selected-ticker {
+      padding: 1.62rem;
+      font-size: 1.6rem;
+      text-align: center;
+    }
   }
 
-  .selected-ticker {
-    flex: 1 1 0;
-    padding: 1.62rem;
-    font-size: 1.6rem;
-    text-align: center;
+  .filings {
+    width: 75%;
+    // border: 1px solid red;
   }
 }
 
-td {
-  text-align: center;
+@media (max-width: 992px) {
+  .data {
+    flex-direction: column;
+
+    width: 100vw;
+    .ticker-selection {
+      width: 100%;
+      padding: 0.8rem;
+      // border: 1px solid gold;
+
+      .selected-ticker {
+        padding: 1.62rem;
+        font-size: 1.6rem;
+        text-align: center;
+      }
+    }
+
+    .filings {
+      width: 100%;
+      // border: 1px solid red;
+    }
+  }
 }
