@@ -52,6 +52,7 @@ export class TickersComponent {
   public getFilings(ticker: string) {
     this.loadingFilings = true;
     this.unsuccessfulRequest = null;
+    this.filingsList.filings = [];
 
     console.log(`Getting financial info of ${ticker}`);
     this.finten.getFilings(ticker).subscribe(
