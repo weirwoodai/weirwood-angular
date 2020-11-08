@@ -13,20 +13,18 @@
 
 <div class="financial-data flex">
   <div class="ticker-selection">
-    <p class="selected-ticker">Selected: {{ selectedTicker }}</p>
     <app-tickers-list
       class="tickers-list"
       (selectedTicker)="setSelectedTicker($event)"
     ></app-tickers-list>
-    <mat-spinner
-      class="hidden spinner"
-      diameter="80"
-      [ngClass]="loading ? 'visible' : ''"
-    ></mat-spinner>
+    <div class="flex flex-center" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <p class="selected-ticker">{{ selectedTicker }}</p>
   </div>
 
   <div class="filings">
-    <div class="center flex flex-center" *ngIf="loadingFilings">
+    <div class="flex flex-center" *ngIf="loadingFilings">
       <mat-spinner></mat-spinner>
     </div>
     <p *ngIf="unsuccessfulRequest !== null">{{ unsuccessfulRequest }}</p>

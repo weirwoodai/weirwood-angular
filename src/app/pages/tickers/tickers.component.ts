@@ -37,27 +37,21 @@ export class TickersComponent {
 
   public getTickers() {
     this.loading = true;
-    try {
-      this.finten.getTickers().subscribe(
-        (data: any) => {
-          this.loading = false;
-          this.tickerSelection.setTickers(data.tickers);
-        },
-        (error: any) => {
-          this.loading = false;
-          this.unsuccessfulRequest = error.error;
-        }
-      );
-    } catch (ex) {
-      this.loading = false;
-      this.unsuccessfulRequest = ex.toString();
-    }
+    this.finten.getTickers().subscribe(
+      (data: any) => {
+        this.loading = false;
+        this.tickerSelection.setTickers(data.tickers);
+      },
+      (error: any) => {
+        this.loading = false;
+        this.unsuccessfulRequest = 'Connection failed!';
+      }
+    );
   }
 
   public getFilings(ticker: string) {
     this.loadingFilings = true;
     this.unsuccessfulRequest = null;
-    this.filingsList.filings = [];
 
     console.log(`Getting financial info of ${ticker}`);
     this.finten.getFilings(ticker).subscribe(

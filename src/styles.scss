@@ -73,6 +73,7 @@ body {
 body {
   margin: 0;
   font-family: 'Montserrat', Roboto, 'Helvetica Neue', sans-serif;
+  box-sizing: border-box;
 }
 
 @import 'partials/utilities';
