@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
-              "src/weirwood_logo.svg",
+              "src/weirwood.svg",
               "src/assets"
             ],
             "styles": [
@@ -86,7 +86,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/efectivo.ico",
+              "src/weirwood.ico",
               "src/assets"
             ],
             "styles": [
