@@ -16,8 +16,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  private loginUrl = `${environment.backend}/api/users/login`;
-  private signupUrl = `${environment.backend}/api/users/signup`;
+  private loginUrl = `${environment.backend}/users/login`;
+  private signupUrl = `${environment.backend}/users/signup`;
   constructor(private http: HttpClient) {}
 
   public async signup(signup: SignUp): Promise<Session> {
