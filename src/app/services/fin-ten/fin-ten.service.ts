@@ -16,16 +16,16 @@ export class FinTenService {
   ) {}
 
   getRoot() {
-    return this.http.get(`${this.backend}/api`);
+    return this.http.get(`${this.backend}/`);
   }
 
   getTickers() {
-    return this.getWithAuthentication(`${this.backend}/api/company/tickers`);
+    return this.getWithAuthentication(`${this.backend}/company/tickers`);
   }
 
   getFilings(ticker: string) {
     return this.getWithAuthentication(
-      `${this.backend}/api/company/filings?ticker=${ticker}`
+      `${this.backend}/company/filings?ticker=${ticker}`
     );
   }
 
