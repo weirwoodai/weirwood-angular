@@ -41,10 +41,8 @@ yarn-error.log
 testem.log
 /typings
 
-.firebase/
+/.firebase
 
 # System Files
 .DS_Store
 Thumbs.db
-
-.firebase/hosting.ZGlzdC93ZWlyd29vZC1hbmd1bGFy.cache
