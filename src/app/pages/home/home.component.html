@@ -1,19 +1,17 @@
-<app-video-background [source]="'assets/weirwood.mp4'" [height]="'100vh'">
-  <div class="landing">
-    <section class="weirwood">
-      <h1>Weirwood</h1>
-      <p>ML powered Financial Services</p>
-    </section>
+<section class="weirwood">
+  <h1>Weirwood</h1>
+  <p>ML powered Financial Services</p>
+</section>
 
-    <section class="products flex flex-wrap flex-center-y">
-      <article class="product finten" routerLink="/tickers">
-        <h1>FinTen</h1>
-        <p>Financial data</p>
-      </article>
-      <article class="product jarvis" routerLink="">
-        <h1>Jarvis</h1>
-        <p>ML portfolios</p>
-      </article>
-    </section>
-  </div>
-</app-video-background>
+<section class="products flex flex-wrap flex-center-y">
+  <app-weirwood-product
+    title="FinTen"
+    description="Financial data"
+    link="/tickers"
+  ></app-weirwood-product>
+  <app-weirwood-product
+    title="Jarvis"
+    description="."
+    link="/tickers"
+  ></app-weirwood-product>
+</section>

@@ -1,8 +1,8 @@
-$footer-height: 5vh;
+$footer-height: 8vh;
 
 .wrapper {
-  min-height: 100vh;
   position: relative;
+  min-height: 100vh;
 
   .content {
     padding-bottom: $footer-height;
@@ -10,8 +10,8 @@ $footer-height: 5vh;
 
   .footer {
     position: absolute;
-    width: 100%;
     bottom: 0;
+    width: 100%;
     height: $footer-height;
     line-height: $footer-height;
     text-align: center;

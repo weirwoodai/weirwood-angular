@@ -14,6 +14,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { VideoBackgroundComponent } from './components/video-background/video-background.component';
+import { WeirwoodProductComponent } from './components/weirwood-product/weirwood-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { VideoBackgroundComponent } from './components/video-background/video-ba
     ProductsComponent,
     AboutComponent,
     ContactComponent,
-    VideoBackgroundComponent
+    VideoBackgroundComponent,
+    WeirwoodProductComponent
   ],
   imports: [
     BrowserModule,

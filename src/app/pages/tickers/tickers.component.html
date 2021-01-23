@@ -1,18 +1,6 @@
-<div class="flex flex-center get-tickers">
-  <button
-    class="show-tickers"
-    #showTickers
-    mat-button
-    mat-raised-button
-    color="accent"
-    (click)="getTickers()"
-  >
-    Show tickers
-  </button>
-</div>
-
-<div class="financial-data flex">
+<div class="financial-data grid">
   <div class="ticker-selection">
+    <p class="selected-ticker">{{ selectedTicker }}</p>
     <app-tickers-list
       class="tickers-list"
       (selectedTicker)="setSelectedTicker($event)"
@@ -20,7 +8,6 @@
     <div class="flex flex-center" *ngIf="loading">
       <mat-spinner></mat-spinner>
     </div>
-    <p class="selected-ticker">{{ selectedTicker }}</p>
   </div>
 
   <div class="filings">
@@ -30,4 +17,43 @@
     <p *ngIf="unsuccessfulRequest !== null">{{ unsuccessfulRequest }}</p>
     <app-filing-list></app-filing-list>
   </div>
+
+  <section class="libraries flex flex-space-around flex-center-y">
+    <app-weirwood-product
+      title="pyfinance"
+      description="Python library"
+      link="https://github.com/weirwoodai/pyfinance"
+    >
+    </app-weirwood-product>
+    <app-weirwood-product
+      title="rfinance"
+      description="R library"
+      link="https://github.com/weirwoodai/pyfinance"
+    >
+    </app-weirwood-product>
+    <app-weirwood-product
+      title="tsfinance"
+      description="TypeScript library"
+      link="https://github.com/weirwoodai/tsfinance"
+    >
+    </app-weirwood-product>
+    <!-- <div class="pyfinance">
+      <button mat-raised-button color="accent" (click)="pyClick()">
+        <h1>pyfinance</h1>
+        <p>Python library for FinTen</p>
+      </button>
+    </div>
+    <div class="rfinance">
+      <button mat-raised-button color="accent">
+        <h1>rfinance</h1>
+        <p>R library for FinTen</p>
+      </button>
+    </div>
+    <div class="tsfinance">
+      <button mat-raised-button color="accent" (click)="tsClick()">
+        <h1>tsfinance</h1>
+        <p>TypeScript library for FinTen</p>
+      </button>
+    </div> -->
+  </section>
 </div>

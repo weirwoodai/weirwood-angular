@@ -49,19 +49,31 @@ $weirwood-palette: (
   )
 );
 
-$weirwood-primary: mat-palette($weirwood-palette, 600, 500, 900);
+$weirwood-primary: mat-palette($weirwood-palette, 100, 500, 900);
 $weirwood-accent: mat-palette($weirwood-palette, 600, 500, 900);
-
-$primary: $weirwood-primary;
-$accent: $weirwood-accent;
-
-// The warn palette is optional (defaults to red).
 $weirwood-warn: mat-palette($mat-red);
 
-$weirwood-theme: mat-dark-theme(
-  $weirwood-primary,
-  $weirwood-accent,
-  $weirwood-warn
+$primary: mat-palette($weirwood-primary);
+$accent: mat-palette($weirwood-accent);
+$background-color: white;
+
+// The warn palette is optional (defaults to red).
+$warn: mat-palette($weirwood-warn);
+
+$weirwood-theme: mat-light-theme($primary, $accent, $warn);
+
+$background: map-get($weirwood-theme, background);
+$background: map_merge(
+  $background,
+  (
+    background: $background-color
+  )
+);
+$weirwood-theme: map_merge(
+  $weirwood-theme,
+  (
+    background: $background
+  )
 );
 
 @include angular-material-theme($weirwood-theme);

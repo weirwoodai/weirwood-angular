@@ -1,4 +1,4 @@
-<div *ngIf="allTickers.length > 0">
+<div *ngIf="allTickers.length > 0" class="tickers-list">
   <div class="flex flex-column flex-space-between">
     <mat-form-field class="search-box">
       <mat-label>Search ticker</mat-label>
@@ -19,7 +19,7 @@
       #paginator
       class="paginator"
       [pageSize]="pageSize"
-      [pageSizeOptions]="[5, 10, 20, 50]"
+      [pageSizeOptions]="[6, 8, 10, 12]"
       [showFirstLastButtons]="true"
       [length]="filteredTickers.length"
       [pageIndex]="currentPage"
