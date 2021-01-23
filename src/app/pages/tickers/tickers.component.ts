@@ -36,42 +36,41 @@ export class TickersComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getTickers();
+    this.getTickers().then(() => {
+      this.setSelectedTicker('AAPL');
+    });
   }
 
-  public getTickers() {
+  public async getTickers() {
     this.loading = true;
-    this.finten.getTickers().subscribe(
-      (data: any) => {
-        this.loading = false;
-        this.tickerSelection.setTickers(data.tickers);
-      },
-      (error: any) => {
-        this.loading = false;
-        this.unsuccessfulRequest = 'Connection failed!';
-      }
-    );
+    try {
+      const data: any = await this.finten.getTickers();
+      this.loading = false;
+      this.tickerSelection.setTickers(data.tickers);
+    } catch (ex) {
+      this.loading = false;
+      this.unsuccessfulRequest = 'Connection failed!';
+    }
   }
 
-  public getFilings(ticker: string) {
+  public async getFilings(ticker: string) {
     this.loadingFilings = true;
     this.unsuccessfulRequest = null;
     this.filingsList.filings = [];
 
     console.log(`Getting financial info of ${ticker}`);
-    this.finten.getFilings(ticker).subscribe(
-      (data: any) => {
-        console.log('Received: ', data);
-        this.loadingFilings = false;
-        this.filingsList.filings = data.filings;
-      },
-      (error: any) => {
-        this.loadingFilings = false;
-        this.unsuccessfulRequest = error.error.error;
-        this.filingsList.filings = [];
-        console.log('There was an error! This one: ', error.error.error);
-      }
-    );
+    try {
+      const data: any = await this.finten.getFilings(ticker);
+      console.log('Received: ', data);
+      this.loadingFilings = false;
+      this.filingsList.filings = data.filings;
+    } catch (ex) {
+      this.loadingFilings = false;
+      this.unsuccessfulRequest =
+        'Could not fetch the data. Please, try again later.';
+      this.filingsList.filings = [];
+      console.error('There was an error: ', ex);
+    }
   }
 
   public setSelectedTicker(event: any) {

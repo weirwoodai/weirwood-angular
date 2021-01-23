@@ -1,6 +1,9 @@
 <div class="financial-data grid">
   <div class="ticker-selection">
-    <p class="selected-ticker">{{ selectedTicker }}</p>
+    <p class="selected-ticker">
+      Annual and quarterly financial statement data for:<br />
+      {{ selectedTicker }}
+    </p>
     <app-tickers-list
       class="tickers-list"
       (selectedTicker)="setSelectedTicker($event)"
@@ -37,23 +40,5 @@
       link="https://github.com/weirwoodai/tsfinance"
     >
     </app-weirwood-product>
-    <!-- <div class="pyfinance">
-      <button mat-raised-button color="accent" (click)="pyClick()">
-        <h1>pyfinance</h1>
-        <p>Python library for FinTen</p>
-      </button>
-    </div>
-    <div class="rfinance">
-      <button mat-raised-button color="accent">
-        <h1>rfinance</h1>
-        <p>R library for FinTen</p>
-      </button>
-    </div>
-    <div class="tsfinance">
-      <button mat-raised-button color="accent" (click)="tsClick()">
-        <h1>tsfinance</h1>
-        <p>TypeScript library for FinTen</p>
-      </button>
-    </div> -->
   </section>
 </div>

@@ -15,7 +15,8 @@
 
 @media (max-width: 992px) {
   .weirwood {
-    margin: 0 0 4rem 0;
+    margin: 1rem;
+    padding: 1rem;
     flex: 100%;
 
     h1 {
@@ -29,13 +30,5 @@
 
   .products {
     flex: 100%;
-
-    .product {
-      flex: 100%;
-      padding: 2rem;
-      h1 {
-        font-size: 1.5rem;
-      }
-    }
   }
 }

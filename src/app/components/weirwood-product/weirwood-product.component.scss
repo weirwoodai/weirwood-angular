@@ -1,28 +1,30 @@
 :host {
-  flex: 1 0 0;
+  flex: 1 1 0;
 }
 
 .product {
   cursor: pointer;
   text-align: center;
-  margin: 2rem 0.3rem;
+  margin: 2rem;
   padding: 5rem 0;
   border-radius: 0.8rem;
   transition: 0.2s all ease-in-out;
   border: 2px solid rgba(187, 187, 187, 0.3);
 
-  h1,
-  p {
+  h1 {
     transition: 0.2s all ease-in-out;
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 0 auto;
+    max-width: 45ch;
   }
 
   &:hover {
     background-color: rgba(187, 187, 187, 0.45);
     h1 {
       font-size: 2.2rem;
-    }
-    p {
-      font-size: 1.4rem;
     }
   }
 
@@ -39,5 +41,12 @@
   .product {
     margin-top: 0.3rem;
     margin-bottom: 0.3rem;
+    width: auto;
+    h1 {
+      font-size: 1.75rem;
+    }
+    p {
+      max-width: 40ch;
+    }
   }
 }

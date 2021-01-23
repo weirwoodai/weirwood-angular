@@ -38,6 +38,6 @@ export class FinTenService {
       Authorization: `Bearer ${this.currentSession.getCurrentToken()}`
     });
 
-    return this.http.get(url, { headers });
+    return this.http.get(url, { headers }).toPromise();
   }
 }
