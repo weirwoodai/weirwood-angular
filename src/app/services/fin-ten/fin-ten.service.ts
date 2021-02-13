@@ -15,18 +15,24 @@ export class FinTenService {
     private currentSession: CurrentSessionService
   ) {}
 
-  getRoot() {
-    return this.http.get(`${this.backend}/`);
-  }
-
   getTickers() {
-    return this.getWithAuthentication(`${this.backend}/company/tickers`);
+    try {
+      return this.getWithAuthentication(`${this.backend}/company/tickers`);
+    } catch (ex) {
+      return this.getDemoData(`${this.backend}/company/demo/tickers`);
+    }
   }
 
   getFilings(ticker: string) {
-    return this.getWithAuthentication(
-      `${this.backend}/company/filings?ticker=${ticker}`
-    );
+    try {
+      return this.getWithAuthentication(
+        `${this.backend}/company/filings?ticker=${ticker}`
+      );
+    } catch (ex) {
+      return this.getDemoData(
+        `${this.backend}/company/demo/filings?ticker=${ticker}`
+      );
+    }
   }
 
   private getWithAuthentication(url: string) {
@@ -39,5 +45,9 @@ export class FinTenService {
     });
 
     return this.http.get(url, { headers }).toPromise();
+  }
+
+  private getDemoData(url: string) {
+    return this.http.get(url).toPromise();
   }
 }

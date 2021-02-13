@@ -7,26 +7,14 @@ import { User } from 'src/app/classes/user/user';
   providedIn: 'root'
 })
 export class CurrentSessionService {
-  private storage: Storage;
   private currentSession: Session | null = null;
 
   private readonly STORED_SESSION = 'FinTenSession';
 
-  constructor(private router: Router) {
-    this.storage = localStorage;
-    this.currentSession = this.loadSessionData();
-  }
+  constructor(private router: Router) {}
 
   setCurrentSession(session: Session): void {
     this.currentSession = session;
-    this.storage.setItem(this.STORED_SESSION, JSON.stringify(session));
-  }
-
-  private loadSessionData(): Session {
-    const storedSession = JSON.parse(this.storage.getItem(this.STORED_SESSION));
-    return storedSession
-      ? new Session(storedSession.token, new User(storedSession.user))
-      : null;
   }
 
   getCurrentSession(): Session | null {
@@ -39,7 +27,6 @@ export class CurrentSessionService {
   }
 
   removeCurrentSession(): void {
-    this.storage.removeItem(this.STORED_SESSION);
     this.currentSession = null;
   }
 

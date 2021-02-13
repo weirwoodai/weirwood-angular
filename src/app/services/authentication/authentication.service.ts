@@ -39,7 +39,7 @@ export class AuthenticationService {
         .toPromise()
     ).body as FinTenLogin;
 
-    return this.asSession(response);
+    return new Session(response);
   }
 
   public async login(login: Login): Promise<Session> {
@@ -60,10 +60,6 @@ export class AuthenticationService {
         .toPromise()
     ).body as FinTenLogin;
 
-    return this.asSession(response);
-  }
-
-  private asSession(r: FinTenLogin): Session {
-    return new Session(r.token, new User(r));
+    return new Session(response);
   }
 }
