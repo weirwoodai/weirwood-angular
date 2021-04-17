@@ -78,6 +78,10 @@ $weirwood-theme: map_merge(
 
 @include angular-material-theme($weirwood-theme);
 
+:root {
+  -webkit-font-smoothing: subpixel-antialias;
+}
+
 html,
 body {
   height: 100%;

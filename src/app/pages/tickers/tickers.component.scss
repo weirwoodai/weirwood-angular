@@ -13,22 +13,29 @@
   height: 84vh;
 
   .ticker-selection {
-    grid-column: 1 / 5;
+    grid-column: 1 / 4;
     grid-row: 1;
     place-items: center;
     overflow: scroll;
     background-color: white;
+    border-radius: 0.8rem;
+
+    .pre-selected-ticker {
+      margin: 1rem 1rem 0;
+    }
 
     .selected-ticker {
-      padding: 1rem;
-      font-size: 1rem;
+      margin: 0 1rem;
+      font-size: 1.3rem;
+      text-align: center;
     }
   }
 
   .filings {
-    grid-column: 5 / 13;
+    grid-column: 4 / 13;
     grid-row: 1;
     overflow: scroll;
+    border-radius: 0.8rem;
   }
 
   .libraries {

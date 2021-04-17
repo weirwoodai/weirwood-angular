@@ -2,13 +2,24 @@
   padding: 0.3rem;
 }
 
+th.mat-header-cell {
+  font-weight: 555;
+  color: #111;
+  font-size: 0.95rem;
+  background: rgb(228, 228, 228);
+}
+
+td.mat-cell {
+  white-space: nowrap;
+}
+
 th.mat-header-cell,
 td.mat-cell,
 td.mat-footer-cell {
-  padding: 0 1.5rem;
+  padding: 0 0.5rem;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  border-bottom-color: rgba(255, 255, 255, 0.12);
+  border-bottom-color: rgba(129, 129, 129, 0.12);
   text-align: center;
 }
 
@@ -17,5 +28,5 @@ td.mat-cell,
 td.mat-footer-cell:not(:last-child) {
   border-right-width: 1px;
   border-right-style: solid;
-  border-right-color: rgba(255, 255, 255, 0.12);
+  border-right-color: rgba(129, 129, 129, 0.12);
 }

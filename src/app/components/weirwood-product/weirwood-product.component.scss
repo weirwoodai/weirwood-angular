@@ -1,5 +1,5 @@
 :host {
-  flex: 1 1 0;
+  flex: 1 1;
 }
 
 .product {
@@ -23,7 +23,7 @@
   }
 
   &:hover {
-    background-color: #ddd;
+    background-color: #f6f6f6;
     border-color: black;
     h1 {
       font-size: 2.2rem;
