@@ -10,6 +10,7 @@
   border-radius: 0.8rem;
   transition: 0.2s all ease-in-out;
   border: 2px solid #aaa;
+  background-color: #e0e0e0;
 
   h1 {
     transition: 0.2s all ease-in-out;
@@ -23,9 +24,13 @@
 
   &:hover {
     background-color: #ddd;
-    border-color: white;
+    border-color: black;
     h1 {
       font-size: 2.2rem;
+    }
+
+    &:active {
+      transform: translateY(4px);
     }
   }
 

@@ -11,14 +11,16 @@
 
   padding: 0.8rem;
   height: 84vh;
+
   .ticker-selection {
     grid-column: 1 / 5;
     grid-row: 1;
     place-items: center;
     overflow: scroll;
 
+    background-color: white;
     .selected-ticker {
-      padding: 1rem 0;
+      padding: 1rem;
       font-size: 1rem;
     }
   }

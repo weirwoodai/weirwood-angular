@@ -1,6 +1,6 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout/';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout/';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 @Component({
@@ -20,7 +20,7 @@ export class TickersListComponent {
   public filteredTickers: string[] = [];
   public paginatedTickers: string[] = [];
   public currentPage = 0;
-  public pageSize = 10;
+  public pageSize = 6;
 
   public inputTicker = '';
 
