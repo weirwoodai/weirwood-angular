@@ -10,11 +10,13 @@ export class WeirwoodProductComponent {
   @Input() title: string;
   @Input() description: string;
   @Input() link: string = '';
+  @Input() installCommand: string = '';
   constructor(private router: Router) {}
 
   click() {
-    /https/.test(this.link)
-      ? window.open(this.link)
-      : this.router.navigate([this.link]);
+    if (!this.link) return;
+
+    if (/https/.test(this.link)) return window.open(this.link);
+    this.router.navigate([this.link]);
   }
 }

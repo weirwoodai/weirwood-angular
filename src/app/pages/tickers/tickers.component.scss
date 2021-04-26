@@ -10,7 +10,7 @@
   row-gap: 0.3rem;
 
   padding: 0.8rem;
-  height: 84vh;
+  height: 88vh;
 
   .ticker-selection {
     grid-column: 1 / 4;
@@ -41,6 +41,7 @@
   .libraries {
     grid-column: 1 / 13;
     grid-row: 2;
+    padding: 0.8rem 0;
   }
 }
 
@@ -67,6 +68,7 @@
 
     .libraries {
       flex-wrap: wrap;
+      height: 100vh;
     }
   }
 }

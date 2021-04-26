@@ -23,23 +23,26 @@
     <app-filing-list></app-filing-list>
   </div>
 
-  <section class="libraries flex flex-space-around flex-center-y">
+  <section class="libraries flex flex-space-around flex-stretch">
     <app-weirwood-product
       title="pyfinance"
       description="Python library"
       link="https://github.com/weirwoodai/pyfinance"
+      installCommand="pip install pyfinance"
     >
     </app-weirwood-product>
     <app-weirwood-product
       title="rfinance"
       description="R library"
       link="https://github.com/weirwoodai/pyfinance"
+      installCommand="install.packages('rfinance')"
     >
     </app-weirwood-product>
     <app-weirwood-product
       title="tsfinance"
       description="TypeScript library"
       link="https://github.com/weirwoodai/tsfinance"
+      installCommand="npm i @weirwoodai/tsfinance"
     >
     </app-weirwood-product>
   </section>
