@@ -1,31 +1,14 @@
-.card {
-  max-width: 60vw;
+:host {
+  display: grid;
+  place-items: center;
 }
 
-.center {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+mat-card {
+  width: clamp(300px, 60%, 600px);
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-
+form {
   .mat-form-field:first-child {
     margin-top: 1.25rem;
   }
-
-  .buttons {
-    justify-self: center;
-    align-self: center;
-  }
-}
-
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }

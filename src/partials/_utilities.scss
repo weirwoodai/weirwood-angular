@@ -13,6 +13,11 @@
   &-space-between {
     justify-content: space-between;
   }
+
+  &-space-evenly {
+    justify-content: space-evenly;
+  }
+
   &-space-around {
     justify-content: space-around;
   }
@@ -63,4 +68,12 @@
 
 .background-color-accent {
   background-color: mat-color($accent);
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
 }

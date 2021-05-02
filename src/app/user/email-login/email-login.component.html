@@ -1,49 +1,41 @@
-<mat-card class="card center">
-  <div
-    *ngIf="isSignup"
-    class="center"
-  >
+<mat-card class="flex flex-column flex-center">
+  <div *ngIf="isSignup" class="flex flex-column flex-center">
     <h3>Create Account</h3>
 
     <button
       mat-stroked-button
+      color="primary"
       (click)="changeType(FormType.LOG_IN)"
     >
       Returning user?
     </button>
   </div>
 
-  <div
-    *ngIf="isLogin"
-    class="center"
-  >
+  <div *ngIf="isLogin" class="flex flex-column flex-center">
     <h3>Sign In</h3>
     <button
       size="small"
       mat-stroked-button
+      color="primary"
       (click)="changeType(FormType.SIGN_UP)"
     >
       New user?
     </button>
   </div>
 
-  <div
-    *ngIf="isPasswordReset"
-    class="center"
-  >
+  <div *ngIf="isPasswordReset" class="flex flex-column flex-center">
     <h3>Reset Password</h3>
     <button
       size="small"
       mat-button
+      color="primary"
       (click)="changeType(FormType.LOG_IN)"
-    >Back</button>
+    >
+      Back
+    </button>
   </div>
 
-  <form
-    class="form"
-    [formGroup]="form"
-    (ngSubmit)="onSubmit()"
-  >
+  <form class="flex flex-column" [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field
       *ngIf="type !== FormType.RESET"
       [color]="username.valid && 'accent'"
@@ -55,11 +47,10 @@
         placeholder="Username"
         autocomplete="off"
       />
-
     </mat-form-field>
 
     <mat-form-field
-      *ngIf="type!==FormType.LOG_IN"
+      *ngIf="type !== FormType.LOG_IN"
       [color]="email.valid && 'accent'"
     >
       <input
@@ -75,10 +66,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field
-      [color]="email.valid && 'accent'"
-      *ngIf="!isPasswordReset"
-    >
+    <mat-form-field [color]="email.valid && 'accent'" *ngIf="!isPasswordReset">
       <input
         matInput
         formControlName="password"
@@ -109,14 +97,9 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-error class="server-error">{{serverMessage}}</mat-error>
-    <div class="buttons">
-      <button
-        *ngIf="isPasswordReset"
-        mat-stroked-button
-        type="submit"
-        disabled
-      >
+    <mat-error class="server-error">{{ serverMessage }}</mat-error>
+    <div class="flex flex-center-y flex-space-evenly">
+      <button *ngIf="isPasswordReset" mat-stroked-button type="submit" disabled>
         Send Reset Password Email
       </button>
 
@@ -127,19 +110,19 @@
         type="submit"
         [disabled]="form.invalid || !passwordDoesMatch || loading"
       >
-        {{type}}
+        {{ type }}
       </button>
 
       <button
-        mat-button
+        mat-raised-button
+        color="warn"
         *ngIf="isLogin && !isPasswordReset"
         (click)="changeType(FormType.RESET)"
       >
         Forgot password?
       </button>
-
     </div>
-    <div class="center">
+    <div class="flex flex-center">
       <mat-spinner *ngIf="loading"></mat-spinner>
     </div>
   </form>

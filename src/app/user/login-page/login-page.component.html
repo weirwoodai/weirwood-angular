@@ -1,22 +1,25 @@
-<main class="center">
-  <div *ngIf="!currentSession.isAuthenticated()">
+<main class="mt-2">
+  <div
+    class="flex flex-column flex-center"
+    *ngIf="!currentSession.isAuthenticated()"
+  >
     <h1>Login</h1>
 
-    <app-email-login (successfulAuthentication)="onSuccessfulAuthentication($event)">
+    <app-email-login
+      (successfulAuthentication)="onSuccessfulAuthentication($event)"
+    >
     </app-email-login>
   </div>
 
   <div
     *ngIf="currentSession.isAuthenticated()"
-    class="logout center"
+    class="flex flex-column flex-center"
   >
     <p>
-      Logged in as <strong>{{ currentSession.getCurrentUser().toString() }}</strong>
+      Logged in as
+      <strong>{{ currentSession.getCurrentUser().toString() }}</strong>
     </p>
 
-    <button
-      mat-stroked-button
-      (click)="currentSession.logout()"
-    > Logout </button>
+    <button mat-stroked-button (click)="currentSession.logout()">Logout</button>
   </div>
 </main>
