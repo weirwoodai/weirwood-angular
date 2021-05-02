@@ -1,18 +1,17 @@
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout/';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
 import { FilingListComponent } from 'src/app/components/filing-list/filing-list.component';
 import { TickersListComponent } from 'src/app/components/tickers-list/tickers-list.component';
 import { FinTenService } from 'src/app/services/fin-ten/fin-ten.service';
 
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout/';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
-
 @Component({
-  selector: 'app-tickers',
-  templateUrl: './tickers.component.html',
-  styleUrls: ['./tickers.component.scss']
+  selector: 'app-filings',
+  templateUrl: './filings.component.html',
+  styleUrls: ['./filings.component.scss']
 })
-export class TickersComponent implements OnInit {
+export class FilingsComponent implements OnInit {
   public isHandset$: Observable<boolean> = this.breakpointObserver
     .observe([Breakpoints.Handset])
     .pipe(
@@ -76,13 +75,5 @@ export class TickersComponent implements OnInit {
   public setSelectedTicker(event: any) {
     this.selectedTicker = event;
     this.getFilings(this.selectedTicker);
-  }
-
-  public pyClick() {
-    window.open('https://github.com/weirwoodai/pyfinance');
-  }
-
-  public tsClick() {
-    window.open('https://github.com/weirwoodai/tsfinance');
   }
 }
