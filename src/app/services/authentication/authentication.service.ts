@@ -1,14 +1,8 @@
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpParams,
-  HttpResponse
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Login } from 'src/app/classes/login/login';
 import { Session } from 'src/app/classes/session/session';
 import { SignUp } from 'src/app/classes/signup/sign-up';
-import { User } from 'src/app/classes/user/user';
 import { FinTenLogin } from 'src/app/interfaces/fin-ten-login';
 import { environment } from 'src/environments/environment';
 
@@ -38,6 +32,7 @@ export class AuthenticationService {
         })
         .toPromise()
     ).body as FinTenLogin;
+    console.log({ response });
 
     return new Session(response);
   }
@@ -59,6 +54,7 @@ export class AuthenticationService {
         })
         .toPromise()
     ).body as FinTenLogin;
+    console.log({ response });
 
     return new Session(response);
   }

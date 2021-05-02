@@ -17,7 +17,11 @@
   >
     <p>
       Logged in as
-      <strong>{{ currentSession.getCurrentUser().toString() }}</strong>
+      <span class="bold">{{ currentSession.getCurrentUser().toString() }}</span>
+    </p>
+    <p>
+      Status:
+      {{ currentSession.getCurrentUser().isPremium ? 'Premium' : 'Free tier' }}
     </p>
 
     <button mat-stroked-button (click)="currentSession.logout()">Logout</button>
