@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  backend: "http://localhost:3000",
+  backend: 'http://localhost:3000',
+  stipeKey:
+    'pk_test_51HeSaxKC9cfycgEDAe63JZE5WRvisujixjl8vHakpbpvfB99Vs2YI6t0xQWSf9iw9fO6h7gwuXs8Kf6sDcF3R5QX00d8ZqCl82'
 };
 
 /*

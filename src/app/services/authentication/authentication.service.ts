@@ -46,7 +46,7 @@ export class AuthenticationService {
       .set('username', login.username)
       .set('password', login.password);
 
-    const response: FinTenLogin = (
+    const response = (
       await this.http
         .post(this.loginUrl, body.toString(), {
           headers,

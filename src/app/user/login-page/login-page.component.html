@@ -25,5 +25,8 @@
     </p>
 
     <button mat-stroked-button (click)="currentSession.logout()">Logout</button>
+    <app-payment
+      *ngIf="!currentSession.getCurrentUser().isPremium"
+    ></app-payment>
   </div>
 </main>

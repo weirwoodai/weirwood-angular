@@ -1,0 +1,40 @@
+<mat-card class="payment">
+  <mat-card-header>
+    <div mat-card-avatar class="weirwood-logo-card"></div>
+    <mat-card-title>Get full access</mat-card-title>
+    <mat-card-subtitle>Do your own analysis</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form matForm [formGroup]="stripeTest">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" formControlName="name" />
+        <mat-icon matSuffix>alternate_email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Amount</mat-label>
+        <input matInput formControlName="amount" />
+        <mat-icon matSuffix>euro_symbol</mat-icon>
+      </mat-form-field>
+
+      <ngx-stripe-card
+        [options]="cardOptions"
+        [elementsOptions]="elementsOptions"
+      ></ngx-stripe-card>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button
+      [disabled]="stripeTest.invalid"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="pay()"
+    >
+      Get full access! 🥳
+    </button>
+  </mat-card-actions>
+</mat-card>

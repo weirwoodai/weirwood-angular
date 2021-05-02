@@ -1,0 +1,23 @@
+:host {
+  width: 100%;
+}
+
+.payment {
+  width: 450px;
+  text-align: center;
+  margin: auto;
+}
+
+button {
+  margin: 2rem auto;
+}
+.weirwood-logo-card {
+  background-image: url('../../../../weirwood.svg');
+  background-size: cover;
+  border-radius: 2rem;
+  background-color: cornflowerblue;
+}
+
+mat-form-field {
+  width: 100%;
+}
