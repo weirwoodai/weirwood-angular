@@ -23,7 +23,7 @@ export class FilingsComponent implements OnInit {
   public selectedTicker = '';
 
   public loadingFilings = false;
-  public unsuccessfulRequest: any = null;
+  public unsuccessfulRequest: string = '';
 
   @ViewChild(TickersListComponent)
   tickerSelection: TickersListComponent;
@@ -34,10 +34,9 @@ export class FilingsComponent implements OnInit {
     private breakpointObserver: BreakpointObserver
   ) {}
 
-  ngOnInit(): void {
-    this.getTickers().then(() => {
-      this.setSelectedTicker('AAPL');
-    });
+  async ngOnInit(): Promise<void> {
+    await this.getTickers();
+    this.setSelectedTicker('AAPL');
   }
 
   public async getTickers() {
@@ -54,7 +53,6 @@ export class FilingsComponent implements OnInit {
 
   public async getFilings(ticker: string) {
     this.loadingFilings = true;
-    this.unsuccessfulRequest = null;
     this.filingsList.filings = [];
 
     console.log(`Getting financial info of ${ticker}`);
@@ -62,6 +60,7 @@ export class FilingsComponent implements OnInit {
       const data: any = await this.finten.getFilings(ticker);
       console.log('Received: ', data);
       this.loadingFilings = false;
+      this.unsuccessfulRequest = '';
       this.filingsList.filings = data.filings;
     } catch (ex) {
       this.loadingFilings = false;
