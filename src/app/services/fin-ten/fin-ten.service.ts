@@ -78,6 +78,7 @@ export class FinTenService {
     });
 
     const body = new HttpParams().set('amount', `${amount}`);
+
     return this.http.post<PaymentIntent>(
       `${this.backend}/payments/intent`,
       body.toString(),

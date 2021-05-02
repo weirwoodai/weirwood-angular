@@ -6,17 +6,23 @@
   </mat-card-header>
 
   <mat-card-content>
-    <form matForm [formGroup]="stripeTest">
+    <form matForm [formGroup]="stripeForm">
       <mat-form-field appearance="outline">
-        <mat-label>Name</mat-label>
+        <mat-label>Cardholder name</mat-label>
         <input matInput type="text" formControlName="name" />
-        <mat-icon matSuffix>alternate_email</mat-icon>
+        <mat-icon matSuffix color="primary">face</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" />
+        <mat-icon matSuffix color="primary">alternate_email</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Amount</mat-label>
         <input matInput formControlName="amount" />
-        <mat-icon matSuffix>euro_symbol</mat-icon>
+        <mat-icon matSuffix color="primary">euro_symbol</mat-icon>
       </mat-form-field>
 
       <ngx-stripe-card
@@ -28,7 +34,7 @@
 
   <mat-card-actions>
     <button
-      [disabled]="stripeTest.invalid"
+      [disabled]="stripeForm.invalid"
       mat-raised-button
       color="primary"
       type="submit"

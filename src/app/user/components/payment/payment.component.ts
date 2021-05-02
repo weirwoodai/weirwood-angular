@@ -1,5 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from '@angular/forms';
 import {
   StripeCardElementOptions,
   StripeElementsOptions
@@ -15,7 +20,7 @@ import { FinTenService } from 'src/app/services/fin-ten/fin-ten.service';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-  amount = 500; // $ 5.00
+  amount = 5000; // € 50.00
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
 
@@ -43,7 +48,7 @@ export class PaymentComponent implements OnInit {
     locale: 'en'
   };
 
-  stripeTest: FormGroup;
+  stripeForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -53,20 +58,21 @@ export class PaymentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.stripeTest = this.fb.group({
-      name: [
+    this.stripeForm = this.fb.group({
+      name: [, [Validators.required]],
+      email: [
         this.currentSession.getCurrentSession().user.email,
-        [Validators.required]
+        [Validators.required, Validators.email]
       ],
-      amount: [
-        this.amount / 100,
-        [Validators.required, Validators.pattern(/\d+/)]
-      ]
+      amount: new FormControl({ value: this.amount / 100, disabled: true }, [
+        Validators.required,
+        Validators.pattern(/\d+/)
+      ])
     });
   }
 
   createToken(): void {
-    const name = this.stripeTest.get('name').value;
+    const name = this.stripeForm.get('name').value;
     this.stripeService
       .createToken(this.card.element, { name })
       .subscribe(async (result) => {
@@ -83,35 +89,36 @@ export class PaymentComponent implements OnInit {
   }
 
   pay(): void {
-    if (this.stripeTest.valid) {
-      this.createPaymentIntent(this.stripeTest.get('amount').value)
-        .pipe(
-          switchMap((pi) =>
-            this.stripeService.confirmCardPayment(pi.client_secret, {
-              payment_method: {
-                card: this.card.element,
-                billing_details: {
-                  name: this.stripeTest.get('name').value
-                }
-              }
-            })
-          )
-        )
-        .subscribe((result) => {
-          if (result.error) {
-            console.log(result.error.message);
-          } else {
-            if (result.paymentIntent.status === 'succeeded') {
-              console.log('Payment successful!', { result });
-            }
-          }
-        });
-    } else {
-      console.log(this.stripeTest);
+    if (!this.stripeForm.valid) {
+      return console.log(this.stripeForm);
     }
+
+    this.createPaymentIntent(this.stripeForm.get('amount').value)
+      .pipe(
+        switchMap((paymentIntent) =>
+          this.stripeService.confirmCardPayment(paymentIntent.client_secret, {
+            payment_method: {
+              card: this.card.element,
+              billing_details: {
+                name: this.stripeForm.get('name').value,
+                email: this.stripeForm.get('email').value
+              }
+            }
+          })
+        )
+      )
+      .subscribe((result) => {
+        if (result.error) {
+          console.log(result.error.message);
+        } else {
+          if (result.paymentIntent.status === 'succeeded') {
+            console.log('Payment successful!', { result });
+          }
+        }
+      });
   }
 
   createPaymentIntent(amount: number) {
-    return this.finten.createPaymentIntent(amount);
+    return this.finten.createPaymentIntent(amount * 100);
   }
 }
