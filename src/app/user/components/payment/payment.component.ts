@@ -10,7 +10,6 @@ import {
   StripeElementsOptions
 } from '@stripe/stripe-js';
 import { StripeCardComponent, StripeService } from 'ngx-stripe';
-import { switchMap } from 'rxjs/operators';
 import { CurrentSessionService } from 'src/app/services/current-session/current-session.service';
 import { FinTenService } from 'src/app/services/fin-ten/fin-ten.service';
 
@@ -23,6 +22,7 @@ export class PaymentComponent implements OnInit {
   amount = 5000; // € 50.00
 
   @ViewChild(StripeCardComponent) card: StripeCardComponent;
+  public isValid = false;
 
   cardOptions: StripeCardElementOptions = {
     iconStyle: 'solid',
@@ -71,51 +71,53 @@ export class PaymentComponent implements OnInit {
     });
   }
 
-  createToken(): void {
+  async createToken(): Promise<void> {
     const name = this.stripeForm.get('name').value;
-    this.stripeService
+    const result = await this.stripeService
       .createToken(this.card.element, { name })
-      .subscribe(async (result) => {
-        if (result.token) {
-          console.log({ t: result.token });
-          const fintenResponse = await this.finten.sendPaymentToken(
-            JSON.stringify(result.token)
-          );
-          console.log({ fintenResponse });
-        } else if (result.error) {
-          console.log(result.error.message);
-        }
-      });
+      .toPromise();
+
+    if (result.token) {
+      console.log({ t: result.token });
+      const fintenResponse = await this.finten.sendPaymentToken(
+        JSON.stringify(result.token)
+      );
+      console.log({ fintenResponse });
+    } else if (result.error) {
+      console.log(result.error.message);
+    }
   }
 
-  pay(): void {
+  async pay(): Promise<void> {
     if (!this.stripeForm.valid) {
       return console.log(this.stripeForm);
     }
 
-    this.createPaymentIntent(this.stripeForm.get('amount').value)
-      .pipe(
-        switchMap((paymentIntent) =>
-          this.stripeService.confirmCardPayment(paymentIntent.client_secret, {
-            payment_method: {
-              card: this.card.element,
-              billing_details: {
-                name: this.stripeForm.get('name').value,
-                email: this.stripeForm.get('email').value
-              }
-            }
-          })
-        )
-      )
-      .subscribe((result) => {
-        if (result.error) {
-          console.log(result.error.message);
-        } else {
-          if (result.paymentIntent.status === 'succeeded') {
-            console.log('Payment successful!', { result });
-          }
+    const amount = this.stripeForm.get('amount').value;
+    const paymentIntent = await this.createPaymentIntent(amount);
+    const confirmCardPaymentData = {
+      payment_method: {
+        card: this.card.element,
+        billing_details: {
+          name: this.stripeForm.get('name').value,
+          email: this.stripeForm.get('email').value
         }
-      });
+      }
+    };
+
+    const cardPaymentConfirmation = await this.stripeService
+      .confirmCardPayment(paymentIntent.client_secret, confirmCardPaymentData)
+      .toPromise();
+
+    if (cardPaymentConfirmation.error) {
+      console.log(
+        `Error confirming payment: ${cardPaymentConfirmation.error.message}`
+      );
+    } else {
+      if (cardPaymentConfirmation.paymentIntent.status === 'succeeded') {
+        console.log('Payment successful!', { cardPaymentConfirmation });
+      }
+    }
   }
 
   createPaymentIntent(amount: number) {

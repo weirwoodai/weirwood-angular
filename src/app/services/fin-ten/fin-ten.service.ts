@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { PaymentIntent } from '@stripe/stripe-js';
-import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { CurrentSessionService } from '../current-session/current-session.service';
 
@@ -67,7 +66,7 @@ export class FinTenService {
       .toPromise();
   }
 
-  createPaymentIntent(amount: number): Observable<PaymentIntent> {
+  createPaymentIntent(amount: number): Promise<PaymentIntent> {
     if (!this.currentSession.isAuthenticated()) {
       throw new Error('Unauthenticated user!');
     }
@@ -79,11 +78,11 @@ export class FinTenService {
 
     const body = new HttpParams().set('amount', `${amount}`);
 
-    return this.http.post<PaymentIntent>(
-      `${this.backend}/payments/intent`,
-      body.toString(),
-      { headers }
-    );
+    return this.http
+      .post<PaymentIntent>(`${this.backend}/payments/intent`, body.toString(), {
+        headers
+      })
+      .toPromise();
   }
 
   private getDemoData(url: string) {
