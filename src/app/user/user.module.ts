@@ -16,7 +16,7 @@ import { UserRoutingModule } from './user-routing.module';
     UserRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    NgxStripeModule.forRoot(environment.stipeKey)
+    NgxStripeModule.forRoot(environment.stripeKey)
   ]
 })
 export class UserModule {}
