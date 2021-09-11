@@ -1,4 +1,4 @@
-<article class="product" (click)="click()">
+<article class="product" (click)="click($event)">
   <h1>{{ title }}</h1>
   <p>{{ description }}</p>
   <code *ngIf="installCommand" class="library">{{ installCommand }}</code>

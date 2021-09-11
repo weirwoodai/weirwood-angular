@@ -11,12 +11,20 @@ export class WeirwoodProductComponent {
   @Input() description: string;
   @Input() link: string = '';
   @Input() installCommand: string = '';
+
   constructor(private router: Router) {}
 
-  click() {
+  click(event: MouseEvent) {
+    event.stopPropagation();
     if (!this.link) return;
+    if (this.isCodeClicked(event)) return;
 
     if (/https/.test(this.link)) return window.open(this.link);
     this.router.navigate([this.link]);
+  }
+
+  private isCodeClicked(event: MouseEvent): boolean {
+    const target = event.target as Element;
+    return target.classList.contains('library');
   }
 }
