@@ -1,20 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@import '~@angular/material/theming';
 // Plus imports for other components in your app.
-@include mat-core();
+@include mat.core();
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-$custom-typography: mat-typography-config(
+$custom-typography: mat.define-typography-config(
   $font-family: 'Montserrat'
 );
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core($custom-typography);
+@include mat.core($custom-typography);
 
 $weirwood-palette: (
   50: #f6e9e9,
@@ -49,18 +49,18 @@ $weirwood-palette: (
   )
 );
 
-$weirwood-primary: mat-palette($weirwood-palette, 100, 500, 900);
-$weirwood-accent: mat-palette($weirwood-palette, 600, 500, 900);
-$weirwood-warn: mat-palette($mat-red);
+$weirwood-primary: mat.define-palette($weirwood-palette, 100, 500, 900);
+$weirwood-accent: mat.define-palette($weirwood-palette, 600, 500, 900);
+$weirwood-warn: mat.define-palette(mat.$red-palette);
 
-$primary: mat-palette($weirwood-primary);
-$accent: mat-palette($weirwood-accent);
+$primary: mat.define-palette($weirwood-primary);
+$accent: mat.define-palette($weirwood-accent);
 $background-color: #f0f0f0;
 
 // The warn palette is optional (defaults to red).
-$warn: mat-palette($weirwood-warn);
+$warn: mat.define-palette($weirwood-warn);
 
-$weirwood-theme: mat-light-theme($primary, $accent, $warn);
+$weirwood-theme: mat.define-light-theme($primary, $accent, $warn);
 
 $background: map-get($weirwood-theme, background);
 $background: map_merge(
@@ -76,7 +76,7 @@ $weirwood-theme: map_merge(
   )
 );
 
-@include angular-material-theme($weirwood-theme);
+@include mat.all-component-themes($weirwood-theme);
 
 :root {
   -webkit-font-smoothing: subpixel-antialias;
