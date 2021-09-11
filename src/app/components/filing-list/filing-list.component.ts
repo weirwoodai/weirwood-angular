@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-filing-list',
@@ -26,10 +26,15 @@ export class FilingListComponent implements OnInit {
 
   private displayFilings() {
     const props: Set<string> = new Set();
-    for (let filing of this.filings) {
+    for (const filing of this.filings) {
       Object.keys(filing).forEach((k) => props.add(k));
     }
 
     this.displayedColumns = [...props];
+  }
+
+  humanReadable(text: string) {
+    const anyUpperCaseNotAtTheStart = /([^^])([A-Z])/g;
+    return text.replace(anyUpperCaseNotAtTheStart, '$1 $2');
   }
 }
