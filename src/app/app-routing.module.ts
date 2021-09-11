@@ -4,6 +4,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { FilingsComponent } from './pages/filings/filings.component';
 import { HomeComponent } from './pages/home/home.component';
+import { JarvisComponent } from './pages/jarvis/jarvis.component';
 import { ProductsComponent } from './pages/products/products.component';
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./user/user.module').then((m) => m.UserModule)
   },
-  { path: 'filings', component: FilingsComponent }
+  { path: 'filings', component: FilingsComponent },
+  { path: 'jarvis', component: JarvisComponent }
 ];
 
 @NgModule({
