@@ -79,10 +79,7 @@ export class EmailLoginComponent implements OnInit {
   }
 
   private addEmailValidators() {
-    this.addFieldValidators(this.email, [
-      Validators.required,
-      Validators.email
-    ]);
+    this.addFieldValidators(this.email, [Validators.required, Validators.email]);
   }
 
   private addFieldValidators(
@@ -138,16 +135,12 @@ export class EmailLoginComponent implements OnInit {
       const password = this.password.value;
 
       if (this.isLogin) {
-        const session = await this.auth.login(
-          new Login({ username, password })
-        );
+        const session = await this.auth.login(new Login({ username, password }));
         this.successfulAuthentication.emit(session);
       }
 
       if (this.isSignup) {
-        const session = await this.auth.signup(
-          new SignUp({ username, email, password })
-        );
+        const session = await this.auth.signup(new SignUp({ username, email, password }));
         this.successfulAuthentication.emit(session);
       }
 

@@ -15,21 +15,16 @@
       ></app-weirwood-logo>
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [matMenuTriggerFor]="products"> Products </a>
+      <a mat-list-item [matMenuTriggerFor]="products">Products</a>
       <mat-menu #products="matMenu">
-        <button mat-menu-item routerLink="/filings" (click)="drawer.close()">
-          FinTen
-        </button>
-        <button mat-menu-item routerLink="" (click)="drawer.close()">
-          Jarvis
-        </button>
+        <button mat-menu-item routerLink="/filings" (click)="drawer.close()">FinTen</button>
+        <button mat-menu-item routerLink="" (click)="drawer.close()">Jarvis</button>
       </mat-menu>
       <a mat-list-item routerLink="/login" (click)="drawer.close()">Login</a>
       <a mat-list-item routerLink="/about" (click)="drawer.close()">About</a>
+      <a mat-list-item routerLink="/disclaimer" (click)="drawer.close()">Disclaimer</a>
 
-      <a mat-list-item routerLink="/contact" (click)="drawer.close()">
-        Contact
-      </a>
+      <a mat-list-item routerLink="/contact" (click)="drawer.close()">Contact</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -44,24 +39,21 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
 
-      <span
-        class="logo h-100"
-        routerLink="/"
-        *ngIf="(isHandset$ | async) === false"
-      >
+      <span class="logo h-100" routerLink="/" *ngIf="(isHandset$ | async) === false">
         <app-weirwood-logo><span>Weirwood</span></app-weirwood-logo>
       </span>
 
       <div *ngIf="(isHandset$ | async) === false">
         <mat-nav-list class="list-horizontal">
           <!-- <a mat-list-item routerLink="/filings">filings</a>-->
-          <a mat-list-item [matMenuTriggerFor]="products"> Products </a>
+          <a mat-list-item [matMenuTriggerFor]="products">Products</a>
           <mat-menu #products="matMenu">
             <button mat-menu-item routerLink="/filings">FinTen</button>
             <button mat-menu-item routerLink="">Jarvis</button>
           </mat-menu>
           <a mat-list-item routerLink="/login">Login</a>
           <a mat-list-item routerLink="/about">About</a>
+          <a mat-list-item routerLink="/disclaimer" (click)="drawer.close()">Disclaimer</a>
           <a mat-list-item routerLink="/contact">Contact</a>
         </mat-nav-list>
       </div>

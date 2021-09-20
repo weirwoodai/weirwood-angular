@@ -13,10 +13,7 @@ import { CurrentSessionService } from '../current-session/current-session.servic
   providedIn: 'root'
 })
 export class GuardService implements CanActivate {
-  constructor(
-    private router: Router,
-    private currentSession: CurrentSessionService
-  ) {}
+  constructor(private router: Router, private currentSession: CurrentSessionService) {}
 
   canActivate(): boolean {
     if (this.currentSession.isAuthenticated()) {

@@ -15,6 +15,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SharedModule } from './shared/shared.module';
 import { JarvisComponent } from './pages/jarvis/jarvis.component';
+import { DisclaimerComponent } from './pages/disclaimer/disclaimer.component';
 
 @NgModule({
   declarations: [
@@ -29,14 +30,10 @@ import { JarvisComponent } from './pages/jarvis/jarvis.component';
     VideoBackgroundComponent,
     WeirwoodProductComponent,
     FilingsComponent,
-    JarvisComponent
+    JarvisComponent,
+    DisclaimerComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    SharedModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })
