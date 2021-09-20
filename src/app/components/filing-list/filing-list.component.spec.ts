@@ -8,9 +8,8 @@ describe('FilingListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FilingListComponent ]
-    })
-    .compileComponents();
+      declarations: [FilingListComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

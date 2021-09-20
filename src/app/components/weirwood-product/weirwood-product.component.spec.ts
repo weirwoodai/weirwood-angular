@@ -8,9 +8,8 @@ describe('WeirwoodProductComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeirwoodProductComponent ]
-    })
-    .compileComponents();
+      declarations: [WeirwoodProductComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -8,12 +8,7 @@
     <ng-content></ng-content>
   </div>
   <div class="video-bg-movie">
-    <video
-      *ngIf="(isHandset$ | async) === false"
-      autoplay
-      loop
-      [src]="source"
-    ></video>
+    <video *ngIf="(isHandset$ | async) === false" autoplay loop [src]="source"></video>
     <img *ngIf="(isHandset$ | async) === true" [src]="poster" alt="" />
   </div>
 </article>

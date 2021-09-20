@@ -2,44 +2,27 @@
   <div *ngIf="isSignup" class="flex flex-column flex-center">
     <h3>Create Account</h3>
 
-    <button
-      mat-stroked-button
-      color="primary"
-      (click)="changeType(FormType.LOG_IN)"
-    >
+    <button mat-stroked-button color="primary" (click)="changeType(FormType.LOG_IN)">
       Returning user?
     </button>
   </div>
 
   <div *ngIf="isLogin" class="flex flex-column flex-center">
     <h3>Sign In</h3>
-    <button
-      size="small"
-      mat-stroked-button
-      color="primary"
-      (click)="changeType(FormType.SIGN_UP)"
-    >
+    <button size="small" mat-stroked-button color="primary" (click)="changeType(FormType.SIGN_UP)">
       New user?
     </button>
   </div>
 
   <div *ngIf="isPasswordReset" class="flex flex-column flex-center">
     <h3>Reset Password</h3>
-    <button
-      size="small"
-      mat-button
-      color="primary"
-      (click)="changeType(FormType.LOG_IN)"
-    >
+    <button size="small" mat-button color="primary" (click)="changeType(FormType.LOG_IN)">
       Back
     </button>
   </div>
 
   <form class="flex flex-column" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <mat-form-field
-      *ngIf="type !== FormType.RESET"
-      [color]="username.valid && 'accent'"
-    >
+    <mat-form-field *ngIf="type !== FormType.RESET" [color]="username.valid && 'accent'">
       <input
         matInput
         formControlName="username"
@@ -49,17 +32,8 @@
       />
     </mat-form-field>
 
-    <mat-form-field
-      *ngIf="type !== FormType.LOG_IN"
-      [color]="email.valid && 'accent'"
-    >
-      <input
-        matInput
-        formControlName="email"
-        type="email"
-        placeholder="Email"
-        autocomplete="off"
-      />
+    <mat-form-field *ngIf="type !== FormType.LOG_IN" [color]="email.valid && 'accent'">
+      <input matInput formControlName="email" type="email" placeholder="Email" autocomplete="off" />
 
       <mat-error *ngIf="email.invalid && email.dirty">
         You must enter a valid email address
@@ -80,10 +54,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field
-      [color]="passwordDoesMatch ? 'accent' : 'warn'"
-      *ngIf="isSignup"
-    >
+    <mat-form-field [color]="passwordDoesMatch ? 'accent' : 'warn'" *ngIf="isSignup">
       <input
         matInput
         formControlName="passwordConfirm"

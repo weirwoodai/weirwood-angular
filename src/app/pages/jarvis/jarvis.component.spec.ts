@@ -8,9 +8,8 @@ describe('JarvisComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JarvisComponent ]
-    })
-    .compileComponents();
+      declarations: [JarvisComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {

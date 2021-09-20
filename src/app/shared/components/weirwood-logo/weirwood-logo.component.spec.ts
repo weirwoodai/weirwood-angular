@@ -8,9 +8,8 @@ describe('WeirwoodLogoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WeirwoodLogoComponent ]
-    })
-    .compileComponents();
+      declarations: [WeirwoodLogoComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

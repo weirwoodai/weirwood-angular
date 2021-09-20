@@ -29,10 +29,7 @@ export class FilingsComponent implements OnInit {
   tickerSelection: TickersListComponent;
   @ViewChild(FilingListComponent) filingsList: FilingListComponent;
 
-  constructor(
-    private finten: FinTenService,
-    private breakpointObserver: BreakpointObserver
-  ) {}
+  constructor(private finten: FinTenService, private breakpointObserver: BreakpointObserver) {}
 
   async ngOnInit(): Promise<void> {
     await this.getTickers();
@@ -64,8 +61,7 @@ export class FilingsComponent implements OnInit {
       this.filingsList.filings = data.filings;
     } catch (ex) {
       this.loadingFilings = false;
-      this.unsuccessfulRequest =
-        'Could not fetch the data. Please, try again later.';
+      this.unsuccessfulRequest = 'Could not fetch the data. Please, try again later.';
       this.filingsList.filings = [];
       console.error('There was an error: ', ex);
     }

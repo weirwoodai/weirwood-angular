@@ -8,9 +8,8 @@ describe('TickersListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TickersListComponent ]
-    })
-    .compileComponents();
+      declarations: [TickersListComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
