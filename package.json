@@ -1,6 +1,6 @@
 {
   "name": "weirwood-angular",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,25 +9,23 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "pretty": "prettier --write 'src/**/*.{html,scss,ts}'",
+    "pretty:check": "prettier --check 'src/**/*.{html,scss,ts}'",
     "postinstall": "ngcc"
   },
   "private": true,
-  "prettier": {
-    "trailingComma": "none"
-  },
   "dependencies": {
-    "@angular/animations": "~11.2.10",
-    "@angular/cdk": "^11.2.9",
-    "@angular/common": "~11.2.10",
-    "@angular/compiler": "~11.2.10",
-    "@angular/core": "~11.2.10",
+    "@angular/animations": "~12.2.5",
+    "@angular/cdk": "^12.2.5",
+    "@angular/common": "~12.2.5",
+    "@angular/compiler": "~12.2.5",
+    "@angular/core": "~12.2.5",
     "@angular/fire": "^6.1.4",
-    "@angular/forms": "~11.2.10",
-    "@angular/material": "^11.2.9",
-    "@angular/platform-browser": "~11.2.10",
-    "@angular/platform-browser-dynamic": "~11.2.10",
-    "@angular/router": "~11.2.10",
-    "@stripe/stripe-js": "^1.14.0",
+    "@angular/forms": "~12.2.5",
+    "@angular/material": "^12.2.5",
+    "@angular/platform-browser": "~12.2.5",
+    "@angular/platform-browser-dynamic": "~12.2.5",
+    "@angular/router": "~12.2.5",
     "firebase": "^7.24.0",
     "ngx-stripe": "^11.0.0",
     "rxjs": "~6.6.7",
@@ -35,11 +33,11 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "~0.1102",
-    "@angular-devkit/build-angular": "~0.1102.9",
-    "@angular/cli": "~11.2.9",
-    "@angular/compiler-cli": "~11.2.10",
-    "@angular/language-service": "~11.2.10",
+    "@angular-devkit/architect": "~0.1202.5",
+    "@angular-devkit/build-angular": "~12.2.5",
+    "@angular/cli": "~12.2.5",
+    "@angular/compiler-cli": "~12.2.5",
+    "@angular/language-service": "~12.2.5",
     "@types/jasmine": "~3.6.9",
     "@types/jasminewd2": "~2.0.8",
     "@types/node": "^14.14.41",
@@ -56,9 +54,10 @@
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.5.4",
     "open": "^7.0.3",
+    "prettier": "^2.4.1",
     "protractor": "~7.0.0",
     "ts-node": "~9.1.1",
     "tslint": "~6.1.0",
-    "typescript": "~4.1.5"
+    "typescript": "~4.3.5"
   }
 }

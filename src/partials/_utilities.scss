@@ -1,3 +1,4 @@
+@use '~@angular/material' as mat;
 .flex {
   display: flex;
 
@@ -63,11 +64,11 @@
 }
 
 .background-color-primary {
-  background-color: mat-color($primary);
+  background-color: mat.get-color-from-palette($primary);
 }
 
 .background-color-accent {
-  background-color: mat-color($accent);
+  background-color: mat.get-color-from-palette($accent);
 }
 
 .mt-2 {

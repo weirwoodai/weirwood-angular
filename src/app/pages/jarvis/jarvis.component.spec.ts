@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FilingsComponent } from './filings.component';
+import { JarvisComponent } from './jarvis.component';
 
-describe('FilingsComponent', () => {
-  let component: FilingsComponent;
-  let fixture: ComponentFixture<FilingsComponent>;
+describe('JarvisComponent', () => {
+  let component: JarvisComponent;
+  let fixture: ComponentFixture<JarvisComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FilingsComponent]
+      declarations: [JarvisComponent]
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FilingsComponent);
+    fixture = TestBed.createComponent(JarvisComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

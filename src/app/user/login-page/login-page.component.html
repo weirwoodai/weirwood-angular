@@ -1,20 +1,13 @@
 <main class="mt-2">
-  <div
-    class="flex flex-column flex-center"
-    *ngIf="!currentSession.isAuthenticated()"
-  >
+  <div class="flex flex-column flex-center" *ngIf="!currentSession.isAuthenticated()">
     <h1>Login</h1>
 
     <app-email-login
       (successfulAuthentication)="onSuccessfulAuthentication($event)"
-    >
-    </app-email-login>
+    ></app-email-login>
   </div>
 
-  <div
-    *ngIf="currentSession.isAuthenticated()"
-    class="flex flex-column flex-center"
-  >
+  <div *ngIf="currentSession.isAuthenticated()" class="flex flex-column flex-center">
     <p>
       Logged in as
       <span class="bold">{{ currentSession.getCurrentUser().toString() }}</span>

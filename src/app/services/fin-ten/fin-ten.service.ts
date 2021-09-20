@@ -9,10 +9,7 @@ import { CurrentSessionService } from '../current-session/current-session.servic
 })
 export class FinTenService {
   private readonly backend = environment.backend;
-  constructor(
-    private http: HttpClient,
-    private currentSession: CurrentSessionService
-  ) {}
+  constructor(private http: HttpClient, private currentSession: CurrentSessionService) {}
 
   getTickers() {
     try {
@@ -24,13 +21,9 @@ export class FinTenService {
 
   getFilings(ticker: string) {
     try {
-      return this.getWithAuthentication(
-        `${this.backend}/company/filings?ticker=${ticker}`
-      );
+      return this.getWithAuthentication(`${this.backend}/company/filings?ticker=${ticker}`);
     } catch (ex) {
-      return this.getDemoData(
-        `${this.backend}/company/demo/filings?ticker=${ticker}`
-      );
+      return this.getDemoData(`${this.backend}/company/demo/filings?ticker=${ticker}`);
     }
   }
 

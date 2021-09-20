@@ -42,9 +42,7 @@ export class AuthenticationService {
       'Content-Type': 'application/x-www-form-urlencoded'
     });
 
-    const body = new HttpParams()
-      .set('username', login.username)
-      .set('password', login.password);
+    const body = new HttpParams().set('username', login.username).set('password', login.password);
 
     const response = (
       await this.http
