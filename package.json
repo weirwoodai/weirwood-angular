@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "pretty": "prettier --write 'src/**/*.{html,scss,ts}'",
     "pretty:check": "prettier --check 'src/**/*.{html,scss,ts}'",
-    "postinstall": "ngcc"
+    "postinstall": "ngcc", 
+    "deploy:win": "winpty node_modules/.bin/ng.cmd deploy"
   },
   "private": true,
   "dependencies": {
