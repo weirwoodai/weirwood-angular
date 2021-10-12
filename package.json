@@ -11,8 +11,12 @@
     "pretty": "prettier --write 'src/**/*.{html,scss,ts}'",
     "pretty:check": "prettier --check 'src/**/*.{html,scss,ts}'",
     "postinstall": "ngcc",
-    "deploy:win": "winpty node_modules/.bin/ng.cmd deploy",
-    "deploy": "ng deploy"
+    "deploy:win": "winpty node_modules/.bin/ng.cmd deploy && npm run postdeploy",
+    "deploy": "ng deploy",
+    "postdeploy": "npm run tag",
+    "tag:delete": "git tag -d deployed && git push --delete origin deployed",
+    "tag:update": "git tag deployed && git push origin deployed",
+    "tag": "npm run tag:delete && npm run tag:update"
   },
   "private": true,
   "dependencies": {
