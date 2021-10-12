@@ -1,0 +1,36 @@
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    * {
+      padding: 4rem 0;
+    }
+  
+    h1 {
+      text-align: center;
+      font-size: 5rem;
+      line-height: 1;
+    }
+  
+    p {
+      width: clamp(60%, 720px, 90%);
+      text-align: justify;
+      line-height: 2.3ch;
+      font-size: 1.12rem;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .contact {
+      * {
+        padding: 4rem 0 0rem;
+      }
+  
+      h1 {
+        font-size: 3rem;
+      }
+    }
+  }
+  
