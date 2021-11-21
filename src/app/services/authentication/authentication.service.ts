@@ -22,7 +22,8 @@ export class AuthenticationService {
     const body = new HttpParams()
       .set('username', signup.username)
       .set('email', signup.email)
-      .set('password', signup.password);
+      .set('password', signup.password)
+      .set('recaptcha', signup.recaptcha);
 
     const response: FinTenLogin = (
       await this.http

@@ -68,6 +68,14 @@
       </mat-error>
     </mat-form-field>
 
+    <re-captcha
+      name="captcha"
+      required
+      (resolved)="recaptchaResult($event)"
+      [siteKey]="recaptchaKey"
+      formControlName="recaptcha"
+    ></re-captcha>
+
     <mat-error class="server-error">{{ serverMessage }}</mat-error>
     <div class="flex flex-center-y flex-space-evenly">
       <button *ngIf="isPasswordReset" mat-stroked-button type="submit" disabled>
@@ -79,7 +87,7 @@
         mat-raised-button
         color="primary"
         type="submit"
-        [disabled]="form.invalid || !passwordDoesMatch || loading"
+        [disabled]="form.invalid || !passwordDoesMatch || loading || !recaptchaValid"
       >
         {{ type }}
       </button>
